@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: Apps Studio Work
+server:
+  port: 8084
