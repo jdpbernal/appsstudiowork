@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Apps Studio Works</title>
+    <title>Privacy Policy - Apps Studio Work</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -17,6 +17,7 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
+            margin-top: 60px; /* Added to account for fixed menu */
         }
         h1 {
             font-size: 2rem;
@@ -59,18 +60,94 @@
         .back-link:hover {
             text-decoration: underline;
         }
+        .menu {
+            background-color: #2c3e50;
+            width: 100%;
+            padding: 10px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+        .menu ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+        .menu li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+        .logo {
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            padding: 5px 10px;
+            float: left;
+            margin-left: 10px;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+        .logo:hover {
+            text-decoration: none;
+        }
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+        .menu a:hover {
+            text-decoration: none;
+        }
+        .menu ul {
+            display: inline-block;
+            margin-left: 20px;
+        }
+        .bottom-bar {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            font-size: 0.9rem;
+        }
+        .bottom-bar a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        .bottom-bar a:hover {
+            text-decoration: underline;
+        }
+        /* Add padding to body to prevent content from being hidden behind the bottom bar */
+        body {
+            padding-bottom: 40px;
+        }
     </style>
 </head>
 <body>
+    <nav class="menu">
+        <a href="/" class="logo">Apps Studio Work</a>
+        <ul>
+            <li><a href="/project">Project</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
+    </nav>
     <div class="container">
         <h1>Privacy Policy</h1>
         <p>Last Updated: April 27, 2025</p>
-        
-        <p>Welcome to Apps Studio Works. We are committed to protecting the privacy of all our users, with special attention to children under 13 years of age. This Privacy Policy explains our practices regarding the collection, use, and disclosure of information from children under 13 and all other users of our applications and services.</p>
-        
+
+        <p>Welcome to Apps Studio Work. We are committed to protecting the privacy of all our users, with special attention to children under 13 years of age. This Privacy Policy explains our practices regarding the collection, use, and disclosure of information from children under 13 and all other users of our applications and services.</p>
+
         <h2>Children's Privacy</h2>
         <p>We comply with the Children's Online Privacy Protection Act (COPPA). We do not knowingly collect personal information from children under 13 without verifiable parental consent. If we learn that we have collected personal information from a child under 13 without parental consent, we will take steps to delete that information as quickly as possible.</p>
-        
+
         <h2>Information We Collect from Children Under 13</h2>
         <p>We may collect the following types of information from children under 13:</p>
         <ul>
@@ -79,7 +156,7 @@
             <li>Device identifiers and usage data</li>
             <li>Non-personal information such as app usage statistics</li>
         </ul>
-        
+
         <h2>Parental Rights</h2>
         <p>Parents or guardians of children under 13 have the right to:</p>
         <ul>
@@ -88,9 +165,9 @@
             <li>Refuse to allow further collection or use of their child's information</li>
             <li>Revoke previously provided consent</li>
         </ul>
-        
-        <p>To exercise these rights, please contact us at privacy@appstudioworks.com.</p>
-        
+
+        <p>To exercise these rights, please contact us at support@appsstudiowork.com.</p>
+
         <h2>How We Use and Share Information</h2>
         <p>We use the information we collect to:</p>
         <ul>
@@ -99,30 +176,54 @@
             <li>Protect the security and integrity of our services</li>
             <li>Comply with legal obligations</li>
         </ul>
-        
+
         <p>We do not share personal information collected from children with third parties except:</p>
         <ul>
             <li>With service providers who assist in operating our services (who are bound by confidentiality obligations)</li>
             <li>When required by law</li>
             <li>To protect the safety of a child or the public</li>
         </ul>
-        
+
         <h2>Data Security</h2>
         <p>We implement reasonable security measures to protect the information we collect from unauthorized access, disclosure, alteration, or destruction.</p>
-        
+
         <h2>Changes to This Privacy Policy</h2>
         <p>We may update this Privacy Policy from time to time. We will notify parents via email of any material changes that affect the collection, use, or disclosure of their child's personal information.</p>
-        
+
+        <h2>Site Collection Notice</h2>
+        <p>This site collects user information to improve your experience. By using this site, you consent to our data collection practices. We collect information such as:</p>
+        <ul>
+            <li>Browser type and version</li>
+            <li>Operating system</li>
+            <li>IP address</li>
+            <li>Pages visited and time spent on each page</li>
+            <li>Referring website</li>
+        </ul>
+        <p>This information helps us understand how users interact with our site and improve our services accordingly.</p>
+
+        <h2>Terms and Conditions of Service</h2>
+        <p>By using Apps Studio Work applications and services, you agree to the following terms and conditions:</p>
+        <ul>
+            <li>You will use our services in compliance with all applicable laws and regulations</li>
+            <li>You will not use our services for any illegal or unauthorized purpose</li>
+            <li>You will not attempt to breach or circumvent any security measures</li>
+            <li>You will not distribute viruses or any other harmful code</li>
+            <li>We reserve the right to terminate access for users who violate these terms</li>
+            <li>We may update these terms from time to time, and continued use constitutes acceptance of any changes</li>
+        </ul>
+
         <h2>Contact Us</h2>
         <p>If you have any questions about this Privacy Policy or our data practices, please contact us at:</p>
-        <p>Email: privacy@appstudioworks.com</p>
-        <p>Address: Apps Studio Works, 123 Main Street, Anytown, USA 12345</p>
-        
+        <p>Email: support@appsstudiowork.com</p>
+<!--        <p>Address: Apps Studio Work, 131 Oak Park Dr, Holland, MI, USA 49424</p>-->
+
         <a href="/" class="back-link">← Back to Home</a>
-        
+
         <div class="footer">
-            <p>&copy; 2025 Apps Studio Works. All rights reserved.</p>
         </div>
+    </div>
+    <div class="bottom-bar">
+        &copy; 2025 Apps Studio Work. All rights reserved | <a href="/privacy-policy">Privacy Policy</a>
     </div>
 </body>
 </html>

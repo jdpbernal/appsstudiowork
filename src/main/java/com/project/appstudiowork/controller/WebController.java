@@ -26,4 +26,31 @@ public class WebController {
     public String privacyPolicy() {
         return "privacy-policy";
     }
+
+    /**
+     * Handles requests to the game page
+     * @return the name of the game template
+     */
+    @GetMapping("/game")
+    public String game() {
+        return "game";
+    }
+
+    /**
+     * Handles requests to the project page
+     * @return the name of the project template
+     */
+    @GetMapping("/project")
+    public String project() {
+        return "project";
+    }
+
+    /**
+     * Handles requests to the about page
+     * @return the name of the about template
+     */
+    @GetMapping("/about")
+    public String about() {
+        return "about";
+    }
 }
