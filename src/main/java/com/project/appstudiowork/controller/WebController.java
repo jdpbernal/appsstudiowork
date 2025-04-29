@@ -46,6 +46,42 @@ public class WebController {
     }
 
     /**
+     * Handles requests to the mobile apps project page
+     * @return the name of the mobile apps project template
+     */
+    @GetMapping("/project/mobile-apps")
+    public String mobileApps() {
+        return "mobile-apps";
+    }
+
+    /**
+     * Handles requests to the games project page
+     * @return the name of the games project template
+     */
+    @GetMapping("/project/games")
+    public String games() {
+        return "games";
+    }
+
+    /**
+     * Handles requests to the web services project page
+     * @return the name of the web services project template
+     */
+    @GetMapping("/project/web-services")
+    public String webServices() {
+        return "web-services";
+    }
+
+    /**
+     * Handles requests to the case study page
+     * @return the name of the case study template
+     */
+    @GetMapping("/case-study")
+    public String caseStudy() {
+        return "case-study";
+    }
+
+    /**
      * Handles requests to the about page
      * @return the name of the about template
      */
