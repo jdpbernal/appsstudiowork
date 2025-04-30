@@ -37,6 +37,15 @@ public class WebController {
     }
 
     /**
+     * Handles requests to the Tic Tac Toe game page
+     * @return the name of the Tic Tac Toe game template
+     */
+    @GetMapping("/games/tictactoe")
+    public String tictactoe() {
+        return "tictactoe";
+    }
+
+    /**
      * Handles requests to the project page
      * @return the name of the project template
      */
