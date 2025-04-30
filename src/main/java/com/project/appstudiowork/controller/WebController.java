@@ -46,6 +46,15 @@ public class WebController {
     }
 
     /**
+     * Handles requests to the Sudoku game page
+     * @return the name of the Sudoku game template
+     */
+    @GetMapping("/games/sudoku")
+    public String sudoku() {
+        return "sudoku";
+    }
+
+    /**
      * Handles requests to the project page
      * @return the name of the project template
      */
