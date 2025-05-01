@@ -55,6 +55,15 @@ public class WebController {
     }
 
     /**
+     * Handles requests to the Cross The Road game page
+     * @return the name of the Cross The Road game template
+     */
+    @GetMapping("/games/crosstheroad")
+    public String crossTheRoad() {
+        return "crosstheroad";
+    }
+
+    /**
      * Handles requests to the project page
      * @return the name of the project template
      */
