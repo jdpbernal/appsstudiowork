@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://appstudiowork.com/games/crosstheroad" />
     <title>Cross The Road - Apps Studio Work</title>
     <style>
         body {
@@ -336,7 +337,7 @@
                 const finalScore = document.getElementById('final-score');
                 const restartButton = document.getElementById('restart-button');
                 const startButton = document.getElementById('start-button');
-                
+
                 // Control buttons
                 const leftButton = document.getElementById('left-button');
                 const rightButton = document.getElementById('right-button');
@@ -382,31 +383,31 @@
 
                     const vehicle = document.createElement('div');
                     vehicle.className = 'vehicle';
-                    
+
                     // Random lane (height)
                     const laneHeight = Math.floor(Math.random() * 8) * 50 + 50;
                     vehicle.style.top = laneHeight + 'px';
-                    
+
                     // Random direction (left to right or right to left)
                     const direction = Math.random() > 0.5 ? 1 : -1;
                     vehicle.dataset.direction = direction;
-                    
+
                     // Random width
                     const width = Math.floor(Math.random() * 50) + 50;
                     vehicle.style.width = width + 'px';
-                    
+
                     // Random color
                     const colors = ['#e74c3c', '#e67e22', '#f1c40f', '#2ecc71', '#1abc9c', '#9b59b6'];
                     const color = colors[Math.floor(Math.random() * colors.length)];
                     vehicle.style.backgroundColor = color;
-                    
+
                     // Set initial position
                     if (direction === 1) {
                         vehicle.style.left = '-' + width + 'px';
                     } else {
                         vehicle.style.left = '400px';
                     }
-                    
+
                     gameContainer.appendChild(vehicle);
                     vehicles.push(vehicle);
                 }
@@ -418,13 +419,13 @@
                         const currentLeft = parseInt(vehicle.style.left);
                         const newLeft = currentLeft + (direction * vehicleSpeed);
                         vehicle.style.left = newLeft + 'px';
-                        
+
                         // Remove vehicles that are off-screen
                         if ((direction === 1 && newLeft > 400) || (direction === -1 && newLeft < -parseInt(vehicle.style.width))) {
                             vehicle.remove();
                             vehicles.splice(index, 1);
                         }
-                        
+
                         // Check for collision with player
                         if (checkCollision(vehicle)) {
                             endGame();
@@ -436,7 +437,7 @@
                 function checkCollision(vehicle) {
                     const playerRect = player.getBoundingClientRect();
                     const vehicleRect = vehicle.getBoundingClientRect();
-                    
+
                     return !(
                         playerRect.right < vehicleRect.left ||
                         playerRect.left > vehicleRect.right ||
@@ -448,7 +449,7 @@
                 // Move player
                 function movePlayer(direction) {
                     if (!gameActive) return;
-                    
+
                     switch(direction) {
                         case 'left':
                             playerX = Math.max(0, playerX - 10);
@@ -463,10 +464,10 @@
                             playerY = Math.max(10, playerY - 10);
                             break;
                     }
-                    
+
                     player.style.left = playerX + 'px';
                     player.style.bottom = playerY + 'px';
-                    
+
                     // Check if player reached the top
                     if (playerY >= 460) {
                         levelUp();
@@ -479,15 +480,15 @@
                     level++;
                     scoreDisplay.textContent = 'Score: ' + score;
                     levelDisplay.textContent = 'Level: ' + level;
-                    
+
                     // Reset player position
                     playerY = 10;
                     player.style.bottom = playerY + 'px';
-                    
+
                     // Increase difficulty
                     vehicleSpeed = Math.min(8, 2 + (level * 0.5));
                     vehicleSpawnRate = Math.max(500, 1500 - (level * 100));
-                    
+
                     // Clear spawn interval and set a new one
                     clearInterval(spawnInterval);
                     spawnInterval = setInterval(createVehicle, vehicleSpawnRate);
@@ -496,7 +497,7 @@
                 // Game loop
                 function gameLoop() {
                     if (!gameActive) return;
-                    
+
                     moveVehicles();
                     animationId = requestAnimationFrame(gameLoop);
                 }
@@ -520,28 +521,28 @@
                     vehicleSpawnRate = 1500;
                     scoreDisplay.textContent = 'Score: ' + score;
                     levelDisplay.textContent = 'Level: ' + level;
-                    
+
                     // Clear existing vehicles
                     vehicles.forEach(vehicle => vehicle.remove());
                     vehicles = [];
-                    
+
                     // Reset player position
                     playerX = 185;
                     playerY = 10;
                     player.style.left = playerX + 'px';
                     player.style.bottom = playerY + 'px';
-                    
+
                     // Create road lines
                     createRoadLines();
-                    
+
                     // Hide game over screen
                     gameOver.style.display = 'none';
-                    
+
                     // Start the game
                     gameActive = true;
                     spawnInterval = setInterval(createVehicle, vehicleSpawnRate);
                     gameLoop();
-                    
+
                     // Hide start button
                     startButton.style.display = 'none';
                 }
@@ -555,7 +556,7 @@
                 // Keyboard controls
                 document.addEventListener('keydown', function(event) {
                     if (!gameActive) return;
-                    
+
                     switch(event.key) {
                         case 'ArrowLeft':
                             movePlayer('left');
