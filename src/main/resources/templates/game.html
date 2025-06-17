@@ -1,193 +1,76 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game - Apps Studio Work</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            color: #333;
-            background-color: #f5f5f5;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            margin-top: 60px; /* Added to account for fixed menu */
-            text-align: center;
-        }
-        h1 {
-            font-size: 2.5rem;
-            color: #2c3e50;
-            margin-bottom: 20px;
-        }
-        p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-        }
-        .game-icon {
-            font-size: 5rem;
-            margin: 30px 0;
-            color: #3498db;
-        }
-        .footer {
-            margin-top: 50px;
-            font-size: 0.9rem;
-            text-align: center;
-            border-top: 1px solid #ddd;
-            padding-top: 20px;
-        }
-        .menu {
-            background-color: #2c3e50;
-            width: 100%;
-            padding: 10px 0;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 100;
-        }
-        .menu ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            text-align: left;
-        }
-        .menu li {
-            display: inline-block;
-            margin: 0 15px;
-            position: relative;
-        }
-        .logo {
-            color: white;
-            text-decoration: none;
-            font-size: 0.95rem;
-            padding: 5px 10px;
-            float: left;
-            margin-left: 10px;
-            border-radius: 3px;
-            transition: background-color 0.3s;
-        }
-        .logo:hover {
-            text-decoration: none;
-        }
-        .menu a {
-            color: white;
-            text-decoration: none;
-            font-size: 0.95rem;
-            padding: 5px 10px;
-            border-radius: 3px;
-            transition: background-color 0.3s;
-        }
-        .menu a:hover {
-            text-decoration: none;
-        }
-        .menu ul {
-            display: inline-block;
-            margin-left: 20px;
-        }
-        /* Dropdown styles */
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #2c3e50;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-            left: 0;
-            border-radius: 3px;
-            margin-top: 5px;
-        }
-        .dropdown-content a {
-            color: white;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-        }
-        .dropdown-content a:hover {
-            background-color: #3a546b;
-        }
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-        /* Nested dropdown styles */
-        .nested-dropdown {
-            position: relative;
-        }
-        .nested-dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #2c3e50;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 2;
-            left: 100%;
-            top: 0;
-            border-radius: 3px;
-        }
-        .nested-dropdown:hover .nested-dropdown-content {
-            display: block;
-        }
-        .bottom-bar {
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            width: 100%;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            font-size: 0.9rem;
-        }
-        .bottom-bar a {
-            color: #3498db;
-            text-decoration: none;
-        }
-        .bottom-bar a:hover {
-            text-decoration: underline;
-        }
-        /* Add padding to body to prevent content from being hidden behind the bottom bar */
-        body {
-            padding-bottom: 40px;
-        }
-    </style>
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="/css/common.css">
+    <!-- External JavaScript -->
+    <script src="/js/main.js" defer></script>
 </head>
-<body>
-    <nav class="menu">
-        <a href="/" class="logo">Apps Studio Work</a>
-        <ul>
-            <li class="dropdown">
-                <a href="/project">Project</a>
-                <div class="dropdown-content">
-                    <a href="/project/mobile-apps">Mobile Apps</a>
-                    <div class="nested-dropdown">
-                        <a href="/project/games">Games</a>
-                        <div class="nested-dropdown-content">
-                            <a href="/games/tictactoe">Tic Tac Toe</a>
+<body class="bg-gray-100 text-gray-800">
+    <!-- Navigation Bar with Tailwind CSS -->
+    <nav class="fixed top-0 left-0 w-full bg-slate-800 shadow-lg z-50 h-20 flex items-center justify-between px-6">
+        <a href="/" class="text-white font-bold text-2xl hover:bg-slate-700 px-5 py-3 rounded-md transition duration-300 flex items-center">
+            <span class="mr-2">🚀</span>Apps Studio Work
+        </a>
+        <ul class="flex space-x-8">
+            <li class="relative group">
+                <a href="/project" class="text-white hover:bg-slate-700 px-4 py-3 rounded-md transition duration-300 flex items-center">
+                    <span class="mr-1">📂</span>Project
+                </a>
+                <div class="absolute hidden group-hover:block bg-slate-800 min-w-[180px] shadow-xl rounded-md mt-1 border border-slate-700 overflow-hidden">
+                    <a href="/project/mobile-apps" class="block text-white hover:bg-slate-700 px-5 py-3 text-left transition duration-200">
+                        <span class="mr-2">📱</span>Mobile Apps
+                    </a>
+                    <div class="relative group/nested">
+                        <a href="/project/games" class="block text-white hover:bg-slate-700 px-5 py-3 text-left transition duration-200">
+                            <span class="mr-2">🎮</span>Games
+                        </a>
+                        <div class="absolute hidden group-hover/nested:block bg-slate-800 min-w-[180px] shadow-xl rounded-md left-full top-0 border border-slate-700 overflow-hidden">
+                            <a href="/games/tictactoe" class="block text-white hover:bg-slate-700 px-5 py-3 text-left transition duration-200">
+                                <span class="mr-2">🎲</span>Tic Tac Toe
+                            </a>
                         </div>
                     </div>
-                    <a href="/project/web-services">Web Services</a>
+                    <a href="/project/web-services" class="block text-white hover:bg-slate-700 px-5 py-3 text-left transition duration-200">
+                        <span class="mr-2">🌐</span>Web Services
+                    </a>
                 </div>
             </li>
-            <li><a href="/case-study">Case Study</a></li>
-            <li><a href="/about">About</a></li>
+            <li><a href="/case-study" class="text-white hover:bg-slate-700 px-4 py-3 rounded-md transition duration-300 flex items-center">
+                <span class="mr-1">📊</span>Case Study
+            </a></li>
+            <li><a href="/about" class="text-white hover:bg-slate-700 px-4 py-3 rounded-md transition duration-300 flex items-center">
+                <span class="mr-1">ℹ️</span>About
+            </a></li>
         </ul>
     </nav>
-    <div class="container">
-        <h1>Game Coming Soon</h1>
-        <div class="game-icon">🎮</div>
-        <p>We're developing an exciting new game experience!</p>
-        <p>Stay tuned for updates on our upcoming game release.</p>
-        <p>The game will feature innovative gameplay and stunning graphics.</p>
-        <div class="footer">
+
+    <!-- Main Content -->
+    <div class="container mx-auto p-6 bg-white rounded-lg shadow-xl border border-gray-200 mt-8 mb-8 text-center" style="min-height: calc(100vh - 180px);">
+        <h1 class="text-4xl font-bold text-slate-800 mb-6">Game Coming Soon</h1>
+        <div class="text-7xl my-8 text-blue-500">🎮</div>
+        <p class="text-xl text-gray-700 mb-6">We're developing an exciting new game experience!</p>
+        <p class="text-xl text-gray-700 mb-6">Stay tuned for updates on our upcoming game release.</p>
+        <p class="text-xl text-gray-700 mb-6">The game will feature innovative gameplay and stunning graphics.</p>
+        <div class="mt-12 pt-6 border-t border-gray-200">
+            <!-- Footer content if needed -->
         </div>
     </div>
-    <div class="bottom-bar">
-        &copy; 2025 Apps Studio Work. All rights reserved | <a href="/privacy-policy">Privacy Policy</a>
+
+    <!-- Bottom Bar with Tailwind CSS -->
+    <div class="fixed bottom-0 left-0 w-full bg-slate-800 text-white flex items-center justify-center py-4 text-sm shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] h-15">
+        <div class="flex flex-wrap items-center justify-center gap-x-4">
+            <span>&copy; Apps Studio Work, LLC All rights reserved</span>
+            <span class="hidden sm:inline text-slate-400">|</span>
+            <a href="/privacy-policy" class="text-blue-400 hover:text-blue-300 hover:underline transition duration-300">Privacy Policy</a>
+            <span class="hidden sm:inline text-slate-400">|</span>
+            <a href="/terms-of-service" class="text-blue-400 hover:text-blue-300 hover:underline transition duration-300">Terms of Service</a>
+        </div>
     </div>
 </body>
 </html>

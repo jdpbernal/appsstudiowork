@@ -1,294 +1,51 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="canonical" href="https://appstudiowork.com/games/tictactoe" />
+    <link rel="canonical" href="https://appsstudiowork.com/games/tictactoe" />
     <title>Tic Tac Toe - Apps Studio Work</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            color: #333;
-            background-color: #f5f5f5;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            margin-top: 60px; /* Added to account for fixed menu */
-            text-align: center;
-        }
-        h1 {
-            font-size: 2.5rem;
-            color: #2c3e50;
-            margin-bottom: 20px;
-        }
-        p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-        }
-        .game-icon {
-            font-size: 5rem;
-            margin: 30px 0;
-            color: #3498db;
-        }
-        .footer {
-            margin-top: 50px;
-            font-size: 0.9rem;
-            text-align: center;
-            border-top: 1px solid #ddd;
-            padding-top: 20px;
-        }
-        .menu {
-            background-color: #2c3e50;
-            width: 100%;
-            padding: 10px 0;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 100;
-        }
-        .menu ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            text-align: left;
-        }
-        .menu li {
-            display: inline-block;
-            margin: 0 15px;
-            position: relative;
-        }
-        .logo {
-            color: white;
-            text-decoration: none;
-            font-size: 0.95rem;
-            padding: 5px 10px;
-            float: left;
-            margin-left: 10px;
-            border-radius: 3px;
-            transition: background-color 0.3s;
-        }
-        .logo:hover {
-            text-decoration: none;
-        }
-        .menu a {
-            color: white;
-            text-decoration: none;
-            font-size: 0.95rem;
-            padding: 5px 10px;
-            border-radius: 3px;
-            transition: background-color 0.3s;
-        }
-        .menu a:hover {
-            text-decoration: none;
-        }
-        .menu ul {
-            display: inline-block;
-            margin-left: 20px;
-        }
-        /* Dropdown styles */
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #2c3e50;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-            left: 0;
-            border-radius: 3px;
-            margin-top: 5px;
-        }
-        .dropdown-content a {
-            color: white;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-        }
-        .dropdown-content a:hover {
-            background-color: #3a546b;
-        }
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-        /* Nested dropdown styles */
-        .nested-dropdown {
-            position: relative;
-        }
-        .nested-dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #2c3e50;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 2;
-            left: 100%;
-            top: 0;
-            border-radius: 3px;
-        }
-        .nested-dropdown:hover .nested-dropdown-content {
-            display: block;
-        }
-        .bottom-bar {
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            width: 100%;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            font-size: 0.9rem;
-        }
-        .bottom-bar a {
-            color: #3498db;
-            text-decoration: none;
-        }
-        .bottom-bar a:hover {
-            text-decoration: underline;
-        }
-        /* Add padding to body to prevent content from being hidden behind the bottom bar */
-        body {
-            padding-bottom: 40px;
-        }
-
-        /* TicTacToe Game Styles */
-        .game-board {
-            display: grid;
-            grid-template-columns: repeat(3, 100px);
-            grid-template-rows: repeat(3, 100px);
-            gap: 5px;
-            margin: 0 auto;
-            width: 310px;
-        }
-        .cell {
-            background-color: #fff;
-            border: 2px solid #2c3e50;
-            font-size: 3rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .cell:hover {
-            background-color: #f0f0f0;
-        }
-        .game-status {
-            margin: 20px 0;
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #2c3e50;
-        }
-        .button {
-            background-color: #3498db;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            margin: 10px 5px;
-            transition: background-color 0.3s;
-        }
-        .button:hover {
-            background-color: #2980b9;
-        }
-        .reset-button {
-            background-color: #3498db;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: background-color 0.3s;
-        }
-        .reset-button:hover {
-            background-color: #2980b9;
-        }
-        .exit-button {
-            background-color: #e74c3c;
-            color: white;
-        }
-        .exit-button:hover {
-            background-color: #c0392b;
-        }
-        .start-button {
-            background-color: #2ecc71;
-            color: white;
-        }
-        .start-button:hover {
-            background-color: #27ae60;
-        }
-        .game-mode-selection {
-            margin: 20px 0;
-            padding: 15px;
-            background-color: #f0f0f0;
-            border-radius: 5px;
-            display: inline-block;
-        }
-        .game-mode-selection label {
-            cursor: pointer;
-            font-weight: bold;
-            color: #2c3e50;
-        }
-        .points-display {
-            margin: 15px 0;
-            font-size: 1.2rem;
-            font-weight: bold;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-        }
-        .game-container {
-            height: 100vh;
-            max-height: 600px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-    </style>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/tictactoe.css">
+    <!-- External JavaScript -->
+    <script src="/js/main.js" defer></script>
+    <script src="/js/tictactoe.js" defer></script>
 </head>
 <body>
-    <nav class="menu">
-        <a href="/" class="logo">Apps Studio Work</a>
-        <ul>
-            <li class="dropdown">
-                <a href="/project">Project</a>
-                <div class="dropdown-content">
-                    <a href="/project/mobile-apps">Mobile Apps</a>
-                    <div class="nested-dropdown">
-                        <a href="/project/games">Games</a>
-                        <div class="nested-dropdown-content">
-                            <a href="/games/tictactoe">Tic Tac Toe</a>
-                            <a href="/games/sudoku">Sudoku</a>
-                            <a href="/games/crosstheroad">Cross The Road</a>
-                        </div>
-                    </div>
-                    <a href="/project/web-services">Web Services</a>
-                </div>
+    <!-- Navigation Bar -->
+    <nav class="nav-main">
+        <a href="/" class="nav-logo">
+            <span class="nav-logo-icon">🚀</span>Apps Studio Work
+        </a>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="/project" class="nav-link">
+                    <span class="nav-link-icon">📂</span>Project
+                </a>
+                <!-- Dropdown menu would be handled with JavaScript -->
             </li>
-            <li><a href="/case-study">Case Study</a></li>
-            <li><a href="/about">About</a></li>
+            <li class="nav-item"><a href="/case-study" class="nav-link">
+                <span class="nav-link-icon">📊</span>Case Study
+            </a></li>
+            <li class="nav-item"><a href="/about" class="nav-link">
+                <span class="nav-link-icon">ℹ️</span>About
+            </a></li>
         </ul>
     </nav>
-    <div class="container">
-        <h1>Tic Tac Toe</h1>
-        <div class="game-icon">🎮</div>
-        <p>Play a classic game of Tic Tac Toe! Choose between single-player mode against the computer or two-player mode with a friend.</p>
+
+    <!-- Main Content -->
+    <div class="main-container text-center">
+        <h1 class="heading-2">Tic Tac Toe</h1>
+        <div class="text-7xl my-8 text-blue-500">❌⭕</div>
+        <p class="text-medium">Play a classic game of Tic Tac Toe! Choose between single-player mode against the computer or two-player mode with a friend.</p>
 
         <div class="game-mode-selection">
-            <label>
+            <label class="cursor-pointer font-bold text-slate-800">
                 <input type="radio" name="gameMode" value="singlePlayer"> Single Player (vs Computer)
             </label>
-            <label style="margin-left: 20px;">
+            <label class="cursor-pointer font-bold text-slate-800 ml-5">
                 <input type="radio" name="gameMode" value="twoPlayer" checked> Two Player
             </label>
         </div>
@@ -298,294 +55,43 @@
             <div>Player O: <span id="player-o-points">0</span> points</div>
         </div>
 
-        <div class="game-container">
-            <div class="game-status">Press Start to begin the game</div>
+        <div class="flex flex-col items-center h-[600px] max-h-[600px]">
+            <div class="text-2xl font-bold text-slate-800 my-5">Press Start to begin the game</div>
 
-            <div class="game-board" style="display: none;">
-                <div class="cell" data-index="0"></div>
-                <div class="cell" data-index="1"></div>
-                <div class="cell" data-index="2"></div>
-                <div class="cell" data-index="3"></div>
-                <div class="cell" data-index="4"></div>
-                <div class="cell" data-index="5"></div>
-                <div class="cell" data-index="6"></div>
-                <div class="cell" data-index="7"></div>
-                <div class="cell" data-index="8"></div>
+            <div class="grid grid-cols-3 gap-[5px] w-[310px] mx-auto hidden">
+                <div class="cell bg-white border-2 border-slate-800 text-5xl flex items-center justify-center cursor-pointer h-[100px] w-[100px] hover:bg-gray-100 transition duration-300" data-index="0"></div>
+                <div class="cell bg-white border-2 border-slate-800 text-5xl flex items-center justify-center cursor-pointer h-[100px] w-[100px] hover:bg-gray-100 transition duration-300" data-index="1"></div>
+                <div class="cell bg-white border-2 border-slate-800 text-5xl flex items-center justify-center cursor-pointer h-[100px] w-[100px] hover:bg-gray-100 transition duration-300" data-index="2"></div>
+                <div class="cell bg-white border-2 border-slate-800 text-5xl flex items-center justify-center cursor-pointer h-[100px] w-[100px] hover:bg-gray-100 transition duration-300" data-index="3"></div>
+                <div class="cell bg-white border-2 border-slate-800 text-5xl flex items-center justify-center cursor-pointer h-[100px] w-[100px] hover:bg-gray-100 transition duration-300" data-index="4"></div>
+                <div class="cell bg-white border-2 border-slate-800 text-5xl flex items-center justify-center cursor-pointer h-[100px] w-[100px] hover:bg-gray-100 transition duration-300" data-index="5"></div>
+                <div class="cell bg-white border-2 border-slate-800 text-5xl flex items-center justify-center cursor-pointer h-[100px] w-[100px] hover:bg-gray-100 transition duration-300" data-index="6"></div>
+                <div class="cell bg-white border-2 border-slate-800 text-5xl flex items-center justify-center cursor-pointer h-[100px] w-[100px] hover:bg-gray-100 transition duration-300" data-index="7"></div>
+                <div class="cell bg-white border-2 border-slate-800 text-5xl flex items-center justify-center cursor-pointer h-[100px] w-[100px] hover:bg-gray-100 transition duration-300" data-index="8"></div>
             </div>
 
-            <div class="button-container">
-                <button id="start-button" class="button start-button">Start Game</button>
-                <button class="reset-button" style="display: none;">Reset Game</button>
-                <button id="exit-button" class="button exit-button">Exit Game</button>
+            <div class="mt-6">
+                <button id="start-button" class="bg-green-500 hover:bg-green-600 text-white border-none py-2 px-5 text-base rounded-md cursor-pointer mx-2 transition duration-300">Start Game</button>
+                <button class="reset-button bg-blue-500 hover:bg-blue-600 text-white border-none py-2 px-5 text-base rounded-md cursor-pointer mx-2 transition duration-300 hidden">Reset Game</button>
+                <button id="exit-button" class="bg-red-500 hover:bg-red-600 text-white border-none py-2 px-5 text-base rounded-md cursor-pointer mx-2 transition duration-300">Exit Game</button>
             </div>
         </div>
 
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const cells = document.querySelectorAll('.cell');
-                const status = document.querySelector('.game-status');
-                const resetButton = document.querySelector('.reset-button');
-                const startButton = document.getElementById('start-button');
-                const exitButton = document.getElementById('exit-button');
-                const gameBoard = document.querySelector('.game-board');
-                const playerXPoints = document.getElementById('player-x-points');
-                const playerOPoints = document.getElementById('player-o-points');
 
-                let currentPlayer = 'X';
-                let gameState = ['', '', '', '', '', '', '', '', ''];
-                let gameActive = false;
-                let isSinglePlayerMode = false;
-                let pointsX = 0;
-                let pointsO = 0;
-
-                // Get the game mode radio buttons
-                const gameModeRadios = document.querySelectorAll('input[name="gameMode"]');
-
-                // Add event listeners to the radio buttons
-                gameModeRadios.forEach(radio => {
-                    radio.addEventListener('change', function() {
-                        isSinglePlayerMode = this.value === 'singlePlayer';
-                        if (gameActive) {
-                            resetGame();
-                        }
-                    });
-                });
-
-                // Initialize game mode based on selected radio button
-                isSinglePlayerMode = document.querySelector('input[name="gameMode"]:checked').value === 'singlePlayer';
-
-                // Start button event listener
-                startButton.addEventListener('click', function() {
-                    gameActive = true;
-                    gameBoard.style.display = 'grid';
-                    resetButton.style.display = 'inline-block';
-                    startButton.style.display = 'none';
-                    resetGame();
-                });
-
-                // Exit button event listener
-                exitButton.addEventListener('click', function() {
-                    window.location.href = '/project/games';
-                });
-
-                const winningConditions = [
-                    [0, 1, 2], [3, 4, 5], [6, 7, 8], // rows
-                    [0, 3, 6], [1, 4, 7], [2, 5, 8], // columns
-                    [0, 4, 8], [2, 4, 6]             // diagonals
-                ];
-
-                // Function to make a computer move
-                function makeComputerMove() {
-                    if (!gameActive) return;
-
-                    // Simple AI: First try to win, then block opponent, then take center, then take a random empty cell
-
-                    // Check if computer can win
-                    for (let i = 0; i < 9; i++) {
-                        if (gameState[i] === '') {
-                            // Try this move
-                            gameState[i] = 'O';
-
-                            // Check if this move would win
-                            let roundWon = false;
-                            for (let j = 0; j < winningConditions.length; j++) {
-                                const [a, b, c] = winningConditions[j];
-                                if (gameState[a] === 'O' && gameState[b] === 'O' && gameState[c] === 'O') {
-                                    roundWon = true;
-                                    break;
-                                }
-                            }
-
-                            // Undo the move
-                            gameState[i] = '';
-
-                            if (roundWon) {
-                                // Make the winning move
-                                gameState[i] = 'O';
-                                document.querySelector(`.cell[data-index="${i}"]`).textContent = 'O';
-                                checkResult();
-                                return;
-                            }
-                        }
-                    }
-
-                    // Check if player can win and block
-                    for (let i = 0; i < 9; i++) {
-                        if (gameState[i] === '') {
-                            // Try this move for the player
-                            gameState[i] = 'X';
-
-                            // Check if this move would win for the player
-                            let playerWouldWin = false;
-                            for (let j = 0; j < winningConditions.length; j++) {
-                                const [a, b, c] = winningConditions[j];
-                                if (gameState[a] === 'X' && gameState[b] === 'X' && gameState[c] === 'X') {
-                                    playerWouldWin = true;
-                                    break;
-                                }
-                            }
-
-                            // Undo the move
-                            gameState[i] = '';
-
-                            if (playerWouldWin) {
-                                // Block the player's winning move
-                                gameState[i] = 'O';
-                                document.querySelector(`.cell[data-index="${i}"]`).textContent = 'O';
-                                checkResult();
-                                return;
-                            }
-                        }
-                    }
-
-                    // Take center if available
-                    if (gameState[4] === '') {
-                        gameState[4] = 'O';
-                        document.querySelector('.cell[data-index="4"]').textContent = 'O';
-                        checkResult();
-                        return;
-                    }
-
-                    // Take a random empty cell
-                    const emptyCells = [];
-                    for (let i = 0; i < 9; i++) {
-                        if (gameState[i] === '') {
-                            emptyCells.push(i);
-                        }
-                    }
-
-                    if (emptyCells.length > 0) {
-                        const randomIndex = Math.floor(Math.random() * emptyCells.length);
-                        const cellIndex = emptyCells[randomIndex];
-                        gameState[cellIndex] = 'O';
-                        document.querySelector(`.cell[data-index="${cellIndex}"]`).textContent = 'O';
-                        checkResult();
-                    }
-                }
-
-                function handleCellClick(clickedCellEvent) {
-                    // If game is not active, do nothing
-                    if (!gameActive) {
-                        return;
-                    }
-
-                    const clickedCell = clickedCellEvent.target;
-                    const clickedCellIndex = parseInt(clickedCell.getAttribute('data-index'));
-
-                    if (gameState[clickedCellIndex] !== '') {
-                        return;
-                    }
-
-                    // Only allow X moves in single player mode (player is always X)
-                    if (isSinglePlayerMode && currentPlayer === 'O') {
-                        return;
-                    }
-
-                    gameState[clickedCellIndex] = currentPlayer;
-                    clickedCell.textContent = currentPlayer;
-
-                    checkResult();
-                }
-
-                function checkResult() {
-                    let roundWon = false;
-
-                    for (let i = 0; i < winningConditions.length; i++) {
-                        const [a, b, c] = winningConditions[i];
-                        const condition = gameState[a] && gameState[a] === gameState[b] && gameState[a] === gameState[c];
-
-                        if (condition) {
-                            roundWon = true;
-                            break;
-                        }
-                    }
-
-                    if (roundWon) {
-                        // Update points
-                        if (currentPlayer === 'X') {
-                            pointsX++;
-                            playerXPoints.textContent = pointsX;
-                        } else {
-                            pointsO++;
-                            playerOPoints.textContent = pointsO;
-                        }
-
-                        if (isSinglePlayerMode) {
-                            status.textContent = currentPlayer === 'X' ? 'You win! +1 point' : 'Computer wins! +1 point';
-                        } else {
-                            status.textContent = `Player ${currentPlayer} wins! +1 point`;
-                        }
-                        gameActive = false;
-
-                        // Show start button again
-                        startButton.style.display = 'inline-block';
-                        startButton.textContent = 'Play Again';
-                        return;
-                    }
-
-                    const roundDraw = !gameState.includes('');
-                    if (roundDraw) {
-                        status.textContent = 'Game ended in a draw!';
-                        gameActive = false;
-
-                        // Show start button again
-                        startButton.style.display = 'inline-block';
-                        startButton.textContent = 'Play Again';
-                        return;
-                    }
-
-                    // Switch player
-                    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-
-                    // Update status text
-                    if (isSinglePlayerMode) {
-                        status.textContent = currentPlayer === 'X' ? 'Your turn' : 'Computer is thinking...';
-
-                        // If it's computer's turn in single player mode, make the move
-                        if (currentPlayer === 'O' && gameActive) {
-                            // Add a small delay to make it feel more natural
-                            setTimeout(makeComputerMove, 500);
-                        }
-                    } else {
-                        status.textContent = `Player ${currentPlayer}'s turn`;
-                    }
-                }
-
-                function resetGame() {
-                    currentPlayer = 'X';
-                    gameState = ['', '', '', '', '', '', '', '', ''];
-                    gameActive = true;
-
-                    // Set appropriate status text based on game mode
-                    if (isSinglePlayerMode) {
-                        status.textContent = 'Your turn';
-                    } else {
-                        status.textContent = `Player ${currentPlayer}'s turn`;
-                    }
-
-                    cells.forEach(cell => {
-                        cell.textContent = '';
-                    });
-
-                    // Hide start button when game is active
-                    startButton.style.display = 'none';
-                    // Show reset button
-                    resetButton.style.display = 'inline-block';
-                }
-
-                cells.forEach(cell => {
-                    cell.addEventListener('click', handleCellClick);
-                });
-
-                resetButton.addEventListener('click', resetGame);
-            });
-        </script>
-
-        <div class="footer">
+        <div class="mt-12 pt-6 border-t border-gray-200">
+            <!-- Footer content if needed -->
         </div>
     </div>
-    <div class="bottom-bar">
-        &copy; 2025 Apps Studio Work. All rights reserved | <a href="/privacy-policy">Privacy Policy</a>
+
+    <!-- Bottom Bar with Tailwind CSS -->
+    <div class="fixed bottom-0 left-0 w-full bg-slate-800 text-white flex items-center justify-center py-4 text-sm shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] h-15">
+        <div class="flex flex-wrap items-center justify-center gap-x-4">
+            <span>&copy; Apps Studio Work, LLC All rights reserved</span>
+            <span class="hidden sm:inline text-slate-400">|</span>
+            <a href="/privacy-policy" class="text-blue-400 hover:text-blue-300 hover:underline transition duration-300">Privacy Policy</a>
+            <span class="hidden sm:inline text-slate-400">|</span>
+            <a href="/terms-of-service" class="text-blue-400 hover:text-blue-300 hover:underline transition duration-300">Terms of Service</a>
+        </div>
     </div>
 </body>
 </html>

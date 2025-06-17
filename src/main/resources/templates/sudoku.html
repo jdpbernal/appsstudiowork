@@ -1,159 +1,17 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="canonical" href="https://appstudiowork.com/games/sudoku" />
+    <link rel="canonical" href="https://appsstudiowork.com/games/sudoku" />
     <title>Sudoku - Apps Studio Work</title>
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            color: #333;
-            background-color: #f5f5f5;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            margin-top: 60px; /* Added to account for fixed menu */
-            text-align: center;
-        }
-        h1 {
-            font-size: 2.5rem;
-            color: #2c3e50;
-            margin-bottom: 20px;
-        }
-        p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-        }
-        .game-icon {
-            font-size: 5rem;
-            margin: 30px 0;
-            color: #3498db;
-        }
-        .footer {
-            margin-top: 50px;
-            font-size: 0.9rem;
-            text-align: center;
-            border-top: 1px solid #ddd;
-            padding-top: 20px;
-        }
-        .menu {
-            background-color: #2c3e50;
-            width: 100%;
-            padding: 10px 0;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 100;
-        }
-        .menu ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            text-align: left;
-        }
-        .menu li {
-            display: inline-block;
-            margin: 0 15px;
-            position: relative;
-        }
-        .logo {
-            color: white;
-            text-decoration: none;
-            font-size: 0.95rem;
-            padding: 5px 10px;
-            float: left;
-            margin-left: 10px;
-            border-radius: 3px;
-            transition: background-color 0.3s;
-        }
-        .logo:hover {
-            text-decoration: none;
-        }
-        .menu a {
-            color: white;
-            text-decoration: none;
-            font-size: 0.95rem;
-            padding: 5px 10px;
-            border-radius: 3px;
-            transition: background-color 0.3s;
-        }
-        .menu a:hover {
-            text-decoration: none;
-        }
-        .menu ul {
-            display: inline-block;
-            margin-left: 20px;
-        }
-        /* Dropdown styles */
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #2c3e50;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-            left: 0;
-            border-radius: 3px;
-            margin-top: 5px;
-        }
-        .dropdown-content a {
-            color: white;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-        }
-        .dropdown-content a:hover {
-            background-color: #3a546b;
-        }
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-        /* Nested dropdown styles */
-        .nested-dropdown {
-            position: relative;
-        }
-        .nested-dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #2c3e50;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 2;
-            left: 100%;
-            top: 0;
-            border-radius: 3px;
-        }
-        .nested-dropdown:hover .nested-dropdown-content {
-            display: block;
-        }
-        .bottom-bar {
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            width: 100%;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            font-size: 0.9rem;
-        }
-        .bottom-bar a {
-            color: #3498db;
-            text-decoration: none;
-        }
-        .bottom-bar a:hover {
-            text-decoration: underline;
-        }
-        /* Add padding to body to prevent content from being hidden behind the bottom bar */
-        body {
-            padding-bottom: 40px;
+            font-family: "Inter", sans-serif;
+            padding-top: 80px; /* Account for fixed top menu (h-20 = 80px) */
+            padding-bottom: 60px; /* Account for fixed bottom bar (h-15 = 60px) */
         }
 
         /* Sudoku Game Styles */
@@ -265,72 +123,99 @@
             margin: 10px 0;
             color: #2c3e50;
         }
+        /* Remove focus highlighting on navigation links */
+        nav a {
+            outline: none;
+        }
     </style>
 </head>
 <body>
-    <nav class="menu">
-        <a href="/" class="logo">Apps Studio Work</a>
-        <ul>
-            <li class="dropdown">
-                <a href="/project">Project</a>
-                <div class="dropdown-content">
-                    <a href="/project/mobile-apps">Mobile Apps</a>
-                    <div class="nested-dropdown">
-                        <a href="/project/games">Games</a>
-                        <div class="nested-dropdown-content">
-                            <a href="/games/sudoku">Sudoku</a>
-                            <a href="/games/tictactoe">Tic Tac Toe</a>
-                            <a href="/games/crosstheroad">Cross The Road</a>
+    <!-- Navigation Bar with Tailwind CSS -->
+    <nav class="fixed top-0 left-0 w-full bg-slate-800 shadow-lg z-50 h-20 flex items-center justify-between px-6">
+        <a href="/" class="text-white font-bold text-2xl hover:bg-slate-700 px-5 py-3 rounded-md transition duration-300 flex items-center">
+            <span class="mr-2">🚀</span>Apps Studio Work
+        </a>
+        <ul class="flex space-x-8">
+            <li class="relative group">
+                <a href="/project" class="text-white hover:bg-slate-700 px-4 py-3 rounded-md transition duration-300 flex items-center">
+                    <span class="mr-1">📂</span>Project
+                </a>
+                <div class="absolute hidden group-hover:block bg-slate-800 min-w-[180px] shadow-xl rounded-md mt-1 border border-slate-700 overflow-hidden">
+                    <a href="/project/mobile-apps" class="block text-white hover:bg-slate-700 px-5 py-3 text-left transition duration-200">
+                        <span class="mr-2">📱</span>Mobile Apps
+                    </a>
+                    <div class="relative group/nested">
+                        <a href="/project/games" class="block text-white hover:bg-slate-700 px-5 py-3 text-left transition duration-200">
+                            <span class="mr-2">🎮</span>Games
+                        </a>
+                        <div class="absolute hidden group-hover/nested:block bg-slate-800 min-w-[180px] shadow-xl rounded-md left-full top-0 border border-slate-700 overflow-hidden">
+                            <a href="/games/sudoku" class="block text-white hover:bg-slate-700 px-5 py-3 text-left transition duration-200">
+                                <span class="mr-2">🧩</span>Sudoku
+                            </a>
+                            <a href="/games/tictactoe" class="block text-white hover:bg-slate-700 px-5 py-3 text-left transition duration-200">
+                                <span class="mr-2">❌⭕</span>Tic Tac Toe
+                            </a>
+                            <a href="/games/crosstheroad" class="block text-white hover:bg-slate-700 px-5 py-3 text-left transition duration-200">
+                                <span class="mr-2">🚗</span>Cross The Road
+                            </a>
                         </div>
                     </div>
-                    <a href="/project/web-services">Web Services</a>
+                    <a href="/project/web-services" class="block text-white hover:bg-slate-700 px-5 py-3 text-left transition duration-200">
+                        <span class="mr-2">🌐</span>Web Services
+                    </a>
                 </div>
             </li>
-            <li><a href="/case-study">Case Study</a></li>
-            <li><a href="/about">About</a></li>
+            <li><a href="/case-study" class="text-white hover:bg-slate-700 px-4 py-3 rounded-md transition duration-300 flex items-center">
+                <span class="mr-1">📊</span>Case Study
+            </a></li>
+            <li><a href="/about" class="text-white hover:bg-slate-700 px-4 py-3 rounded-md transition duration-300 flex items-center">
+                <span class="mr-1">ℹ️</span>About
+            </a></li>
         </ul>
     </nav>
-    <div class="container">
-        <h1>Sudoku</h1>
-        <div class="game-icon">🧩</div>
-        <p>Challenge yourself with a game of Sudoku! Fill in the grid so that every row, column, and 3×3 box contains the digits 1 through 9.</p>
 
-        <div class="difficulty-selection">
-            <label>
+    <!-- Main Content -->
+    <div class="container mx-auto p-6 bg-white rounded-lg shadow-xl border border-gray-200 mt-8 mb-8 text-center">
+        <h1 class="text-4xl font-bold text-slate-800 mb-6">Sudoku</h1>
+        <div class="text-7xl my-8 text-blue-500">🧩</div>
+        <p class="text-xl text-gray-700 mb-6">Challenge yourself with a game of Sudoku! Fill in the grid so that every row, column, and 3×3 box contains the digits 1 through 9.</p>
+
+        <div class="my-6 p-4 bg-gray-100 rounded-md inline-block">
+            <label class="cursor-pointer font-bold text-slate-800 mx-3">
                 <input type="radio" name="difficulty" value="easy" checked> Easy
             </label>
-            <label>
+            <label class="cursor-pointer font-bold text-slate-800 mx-3">
                 <input type="radio" name="difficulty" value="medium"> Medium
             </label>
-            <label>
+            <label class="cursor-pointer font-bold text-slate-800 mx-3">
                 <input type="radio" name="difficulty" value="hard"> Hard
             </label>
         </div>
 
-        <div class="game-status">Select a cell and use the number pad below</div>
-        <div class="timer">Time: 00:00</div>
+        <div class="text-2xl font-bold text-slate-800 my-5">Select a cell and use the number pad below</div>
+        <div class="text-xl text-slate-700 my-3">Time: 00:00</div>
 
-        <div class="sudoku-board" id="sudoku-board">
+        <div class="sudoku-board grid grid-cols-9 gap-[1px] mx-auto w-[370px] bg-slate-800 p-[5px] rounded-md" id="sudoku-board">
             <!-- Cells will be generated by JavaScript -->
         </div>
 
-        <div class="number-pad">
-            <button class="number-button" data-number="1">1</button>
-            <button class="number-button" data-number="2">2</button>
-            <button class="number-button" data-number="3">3</button>
-            <button class="number-button" data-number="4">4</button>
-            <button class="number-button" data-number="5">5</button>
-            <button class="number-button" data-number="6">6</button>
-            <button class="number-button" data-number="7">7</button>
-            <button class="number-button" data-number="8">8</button>
-            <button class="number-button" data-number="9">9</button>
+        <div class="grid grid-cols-9 gap-[5px] my-5 mx-auto w-[370px]">
+            <button class="number-button bg-blue-500 hover:bg-blue-600 text-white border-none text-xl rounded-md cursor-pointer h-[40px] flex items-center justify-center transition duration-300" data-number="1">1</button>
+            <button class="number-button bg-blue-500 hover:bg-blue-600 text-white border-none text-xl rounded-md cursor-pointer h-[40px] flex items-center justify-center transition duration-300" data-number="2">2</button>
+            <button class="number-button bg-blue-500 hover:bg-blue-600 text-white border-none text-xl rounded-md cursor-pointer h-[40px] flex items-center justify-center transition duration-300" data-number="3">3</button>
+            <button class="number-button bg-blue-500 hover:bg-blue-600 text-white border-none text-xl rounded-md cursor-pointer h-[40px] flex items-center justify-center transition duration-300" data-number="4">4</button>
+            <button class="number-button bg-blue-500 hover:bg-blue-600 text-white border-none text-xl rounded-md cursor-pointer h-[40px] flex items-center justify-center transition duration-300" data-number="5">5</button>
+            <button class="number-button bg-blue-500 hover:bg-blue-600 text-white border-none text-xl rounded-md cursor-pointer h-[40px] flex items-center justify-center transition duration-300" data-number="6">6</button>
+            <button class="number-button bg-blue-500 hover:bg-blue-600 text-white border-none text-xl rounded-md cursor-pointer h-[40px] flex items-center justify-center transition duration-300" data-number="7">7</button>
+            <button class="number-button bg-blue-500 hover:bg-blue-600 text-white border-none text-xl rounded-md cursor-pointer h-[40px] flex items-center justify-center transition duration-300" data-number="8">8</button>
+            <button class="number-button bg-blue-500 hover:bg-blue-600 text-white border-none text-xl rounded-md cursor-pointer h-[40px] flex items-center justify-center transition duration-300" data-number="9">9</button>
         </div>
 
-        <div class="game-controls">
-            <button class="control-button" id="erase-button">Erase</button>
-            <button class="control-button" id="hint-button">Hint</button>
-            <button class="control-button" id="new-game-button">New Game</button>
-            <button class="control-button" id="check-button">Check Solution</button>
+        <div class="flex justify-center flex-wrap my-5">
+            <button class="control-button bg-blue-500 hover:bg-blue-600 text-white border-none py-2 px-5 text-base rounded-md cursor-pointer m-2 transition duration-300" id="erase-button">Erase</button>
+            <button class="control-button bg-blue-500 hover:bg-blue-600 text-white border-none py-2 px-5 text-base rounded-md cursor-pointer m-2 transition duration-300" id="hint-button">Hint</button>
+            <button class="control-button bg-blue-500 hover:bg-blue-600 text-white border-none py-2 px-5 text-base rounded-md cursor-pointer m-2 transition duration-300" id="new-game-button">New Game</button>
+            <button class="control-button bg-blue-500 hover:bg-blue-600 text-white border-none py-2 px-5 text-base rounded-md cursor-pointer m-2 transition duration-300" id="check-button">Check Solution</button>
         </div>
 
         <script>
@@ -757,11 +642,20 @@
             });
         </script>
 
-        <div class="footer">
+        <div class="mt-12 pt-6 border-t border-gray-200">
+            <!-- Footer content if needed -->
         </div>
     </div>
-    <div class="bottom-bar">
-        &copy; 2025 Apps Studio Work. All rights reserved | <a href="/privacy-policy">Privacy Policy</a>
+
+    <!-- Bottom Bar with Tailwind CSS -->
+    <div class="fixed bottom-0 left-0 w-full bg-slate-800 text-white flex items-center justify-center py-4 text-sm shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] h-15">
+        <div class="flex flex-wrap items-center justify-center gap-x-4">
+            <span>&copy; Apps Studio Work, LLC All rights reserved</span>
+            <span class="hidden sm:inline text-slate-400">|</span>
+            <a href="/privacy-policy" class="text-blue-400 hover:text-blue-300 hover:underline transition duration-300">Privacy Policy</a>
+            <span class="hidden sm:inline text-slate-400">|</span>
+            <a href="/terms-of-service" class="text-blue-400 hover:text-blue-300 hover:underline transition duration-300">Terms of Service</a>
+        </div>
     </div>
 </body>
 </html>

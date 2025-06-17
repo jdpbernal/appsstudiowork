@@ -1,189 +1,122 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="canonical" href="https://appstudiowork.com/" />
-    <title>Apps Studio Work - Coming Soon</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-            color: #333;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            margin-top: 60px; /* Added to account for fixed menu */
-            text-align: center;
-        }
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: #2c3e50;
-        }
-        p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-        }
-        .footer {
-            margin-top: 50px;
-            font-size: 0.9rem;
-        }
-        .footer a {
-            color: #3498db;
-            text-decoration: none;
-        }
-        .footer a:hover {
-            text-decoration: underline;
-        }
-        .menu {
-            background-color: #2c3e50;
-            width: 100%;
-            padding: 10px 0;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 100;
-        }
-        .menu ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            text-align: left;
-        }
-        .menu li {
-            display: inline-block;
-            margin: 0 15px;
-            position: relative;
-        }
-        .logo {
-            color: white;
-            text-decoration: none;
-            font-size: 0.95rem;
-            padding: 5px 10px;
-            float: left;
-            margin-left: 10px;
-            border-radius: 3px;
-            transition: background-color 0.3s;
-        }
-        .logo:hover {
-            text-decoration: none;
-        }
-        .menu a {
-            color: white;
-            text-decoration: none;
-            font-size: 0.95rem;
-            padding: 5px 10px;
-            border-radius: 3px;
-            transition: background-color 0.3s;
-        }
-        .menu a:hover {
-            text-decoration: none;
-        }
-        .menu ul {
-            display: inline-block;
-            margin-left: 20px;
-        }
-        /* Dropdown styles */
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #2c3e50;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-            left: 0;
-            border-radius: 3px;
-            margin-top: 5px;
-        }
-        .dropdown-content a {
-            color: white;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-        }
-        .dropdown-content a:hover {
-            background-color: #3a546b;
-        }
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-        /* Nested dropdown styles */
-        .nested-dropdown {
-            position: relative;
-        }
-        .nested-dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #2c3e50;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 2;
-            left: 100%;
-            top: 0;
-            border-radius: 3px;
-        }
-        .nested-dropdown:hover .nested-dropdown-content {
-            display: block;
-        }
-        .bottom-bar {
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            width: 100%;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            font-size: 0.9rem;
-        }
-        .bottom-bar a {
-            color: #3498db;
-            text-decoration: none;
-        }
-        .bottom-bar a:hover {
-            text-decoration: underline;
-        }
-        /* Add padding to body to prevent content from being hidden behind the bottom bar */
-        body {
-            padding-bottom: 40px;
-        }
-    </style>
+    <link rel="canonical" href="https://appsstudiowork.com/" />
+    <title>Apps Studio Work - Innovative Software Solutions</title>
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <!-- External JavaScript -->
+    <script src="/js/main.js" defer></script>
 </head>
-<body>
-    <nav class="menu">
-        <a href="/" class="logo">Apps Studio Work</a>
-        <ul>
-            <li class="dropdown">
-                <a href="/project">Project</a>
-                <div class="dropdown-content">
-                    <a href="/project/mobile-apps">Mobile Apps</a>
-                    <div class="nested-dropdown">
-                        <a href="/project/games">Games</a>
-                    </div>
-                    <a href="/project/web-services">Web Services</a>
+<body class="bg-gray-100 text-gray-800">
+<!-- Navigation Bar with Tailwind CSS -->
+<nav class="fixed top-0 left-0 w-full bg-slate-800 shadow-lg z-50 h-20 flex items-center justify-between px-6">
+    <a href="/" class="text-white font-bold text-2xl hover:bg-slate-700 px-5 py-3 rounded-md transition duration-300 flex items-center">
+        <span class="mr-2">🚀</span>Apps Studio Work
+    </a>
+    <ul class="flex space-x-8">
+        <li><a href="/about" class="text-white hover:bg-slate-700 px-4 py-3 rounded-md transition duration-300 flex items-center">
+            <span class="mr-1">ℹ️</span>About
+        </a></li>
+    </ul>
+</nav>
+
+<!-- Main Content -->
+<div class="container mx-auto p-6 bg-white rounded-lg shadow-xl border border-gray-200 mt-8 mb-8" style="min-height: calc(100vh - 120px); width: 100%;">
+    <!-- Main Header Section -->
+    <header class="text-center section">
+        <h1 class="heading-1">
+            Apps Studio Work
+        </h1>
+        <p class="text-large">
+            Your partner for <span class="text-highlight">innovative software solutions</span>.
+        </p>
+    </header>
+
+    <!-- Services Summary Section -->
+    <section class="card-grid card-grid-4">
+        <!-- Mobile App Development Card -->
+        <a href="/project/mobile-apps" class="block">
+            <div class="card card-blue">
+                <!-- Mobile icon (inline SVG for simplicity) -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="card-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+                <div class="text-center">
+                    <h2 class="card-title">Mobile App Development</h2>
+                    <p class="card-text">Crafting intuitive, high-performance apps for iOS & Android.</p>
                 </div>
-            </li>
-            <li><a href="/case-study">Case Study</a></li>
-            <li><a href="/about">About</a></li>
-        </ul>
-    </nav>
-    <div class="container">
-        <h1>Apps Studio Work</h1>
-        <p>We're working on something exciting!</p>
-        <h2>Coming Soon</h2>
-        <p>Stay tuned for further updates on our innovative applications and services.</p>
-        <div class="footer">
-        </div>
+            </div>
+        </a>
+
+        <!-- Web Services Card -->
+        <a href="/project/web-services" class="block">
+            <div class="card card-purple">
+                <!-- Web icon (inline SVG) -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="card-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16L2 12l4-4" />
+                </svg>
+                <div class="text-center">
+                    <h2 class="card-title">Web Services</h2>
+                    <p class="card-text">Scalable and secure web solutions, from sites to backend systems.</p>
+                </div>
+            </div>
+        </a>
+
+        <!-- Game Development Card -->
+        <a href="/project/games" class="block">
+            <div class="card card-green">
+                <!-- Gamepad icon (inline SVG) -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="card-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.148A.5 2.5 0 0112 2a.5 2.5 0 01.951.148L14.776 5H20a2 2 0 012 2v9a2 2 0 01-2 2h-5.224l-1.825 3.127a.5 2.5 0 01-.89 0L9.224 18H4a2 2 0 01-2-2V7a2 2 0 012-2h5.224L11.049 2.148z" />
+                </svg>
+                <div class="text-center">
+                    <h2 class="card-title">Game Development</h2>
+                    <p class="card-text">Creating captivating and immersive interactive game experiences.</p>
+                </div>
+            </div>
+        </a>
+
+        <!-- Graphics Art Card -->
+        <a href="/project/graphics-art" class="block">
+            <div class="card card-orange">
+                <!-- Brush icon (inline SVG) -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="card-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-1.414-1.414A1 1 0 0015.586 7H9.414a1 1 0 00-.707.293L7.293 8.586A1 1 0 007 9.414V19a2 2 0 002 2z" />
+                </svg>
+                <div class="text-center">
+                    <h2 class="card-title">Graphics Art</h2>
+                    <p class="card-text">Stunning visual assets for UI, marketing, and game design.</p>
+                </div>
+            </div>
+        </a>
+    </section>
+
+    <!-- Call to Action Section -->
+    <div class="text-center">
+        <p class="text-medium">
+            Ready to transform your ideas into digital masterpieces?
+        </p>
+        <a href="#" class="btn btn-primary">
+            Let's Innovate Together!
+        </a>
     </div>
-    <div class="bottom-bar">
-        &copy; 2025 Apps Studio Work. All rights reserved | <a href="/privacy-policy">Privacy Policy</a>
+</div>
+
+<!-- Bottom Bar with Tailwind CSS -->
+<div class="fixed bottom-0 left-0 w-full bg-slate-800 text-white flex items-center justify-center py-4 text-sm shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] h-15">
+    <div class="flex flex-wrap items-center justify-center gap-x-4">
+        <span>&copy; Apps Studio Work, LLC All rights reserved</span>
+        <span class="hidden sm:inline text-slate-400">|</span>
+        <a href="/privacy-policy" class="text-blue-400 hover:text-blue-300 hover:underline transition duration-300">Privacy Policy</a>
+        <span class="hidden sm:inline text-slate-400">|</span>
+        <a href="/terms-of-service" class="text-blue-400 hover:text-blue-300 hover:underline transition duration-300">Terms of Service</a>
     </div>
+</div>
 </body>
 </html>

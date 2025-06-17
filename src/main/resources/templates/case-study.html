@@ -1,191 +1,136 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="canonical" href="https://appstudiowork.com/case-study" />
+    <link rel="canonical" href="https://appsstudiowork.com/case-study" />
     <title>Case Study - Apps Studio Work</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            color: #333;
-            background-color: #f5f5f5;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            margin-top: 60px; /* Added to account for fixed menu */
-            text-align: center;
-        }
-        h1 {
-            font-size: 2.5rem;
-            color: #2c3e50;
-            margin-bottom: 20px;
-        }
-        p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-        }
-        .case-study-icon {
-            font-size: 5rem;
-            margin: 30px 0;
-            color: #3498db;
-        }
-        .footer {
-            margin-top: 50px;
-            font-size: 0.9rem;
-            text-align: center;
-            border-top: 1px solid #ddd;
-            padding-top: 20px;
-        }
-        .menu {
-            background-color: #2c3e50;
-            width: 100%;
-            padding: 10px 0;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 100;
-        }
-        .menu ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            text-align: left;
-        }
-        .menu li {
-            display: inline-block;
-            margin: 0 15px;
-            position: relative;
-        }
-        .logo {
-            color: white;
-            text-decoration: none;
-            font-size: 0.95rem;
-            padding: 5px 10px;
-            float: left;
-            margin-left: 10px;
-            border-radius: 3px;
-            transition: background-color 0.3s;
-        }
-        .logo:hover {
-            text-decoration: none;
-        }
-        .menu a {
-            color: white;
-            text-decoration: none;
-            font-size: 0.95rem;
-            padding: 5px 10px;
-            border-radius: 3px;
-            transition: background-color 0.3s;
-        }
-        .menu a:hover {
-            text-decoration: none;
-        }
-        .menu ul {
-            display: inline-block;
-            margin-left: 20px;
-        }
-        /* Dropdown styles */
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #2c3e50;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-            left: 0;
-            border-radius: 3px;
-            margin-top: 5px;
-        }
-        .dropdown-content a {
-            color: white;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-        }
-        .dropdown-content a:hover {
-            background-color: #3a546b;
-        }
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-        /* Nested dropdown styles */
-        .nested-dropdown {
-            position: relative;
-        }
-        .nested-dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #2c3e50;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 2;
-            left: 100%;
-            top: 0;
-            border-radius: 3px;
-        }
-        .nested-dropdown:hover .nested-dropdown-content {
-            display: block;
-        }
-        .bottom-bar {
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            width: 100%;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            font-size: 0.9rem;
-        }
-        .bottom-bar a {
-            color: #3498db;
-            text-decoration: none;
-        }
-        .bottom-bar a:hover {
-            text-decoration: underline;
-        }
-        /* Add padding to body to prevent content from being hidden behind the bottom bar */
-        body {
-            padding-bottom: 40px;
-        }
-    </style>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <!-- External JavaScript -->
+    <script src="/js/main.js" defer></script>
 </head>
 <body>
-    <nav class="menu">
-        <a href="/" class="logo">Apps Studio Work</a>
-        <ul>
-            <li class="dropdown">
-                <a href="/project">Project</a>
-                <div class="dropdown-content">
-                    <a href="/project/mobile-apps">Mobile Apps</a>
-                    <div class="nested-dropdown">
-                        <a href="/project/games">Games</a>
-                    </div>
-                    <a href="/project/web-services">Web Services</a>
-                </div>
-            </li>
-            <li><a href="/case-study">Case Study</a></li>
-            <li><a href="/about">About</a></li>
-        </ul>
-    </nav>
-    <div class="container">
-        <h1>Case Studies</h1>
-        <div class="case-study-icon">📊</div>
-        <p>Explore our successful projects and learn how we've helped businesses achieve their goals.</p>
-        <p>Each case study provides insights into our approach, challenges faced, and solutions delivered.</p>
-        <p>Check back regularly as we add more case studies showcasing our expertise and innovation.</p>
-        <div class="footer">
+<!-- Navigation Bar -->
+<nav class="nav-main">
+    <a href="/" class="nav-logo">
+        <span class="nav-logo-icon">🚀</span>Apps Studio Work
+    </a>
+    <ul class="nav-menu">
+        <li class="nav-item"><a href="/about" class="nav-link">
+            <span class="nav-link-icon">ℹ️</span>About
+        </a></li>
+    </ul>
+</nav>
+<!-- Main Content -->
+<div class="main-container">
+    <!-- Main Header Section -->
+    <header class="text-center section">
+        <h1 class="heading-1">
+            Case Study
+        </h1>
+        <div class="text-5xl mb-4">📊</div>
+        <p class="text-large">
+            Explore our <span class="text-highlight">successful projects</span> and learn how we solve real-world problems.
+        </p>
+    </header>
+
+    <!-- Case Study Intro Section -->
+    <section class="section section-bg">
+        <p class="text-medium">
+            At Apps Studio Work, we pride ourselves on delivering exceptional solutions to complex challenges.
+        </p>
+        <p class="text-large">
+            Below are some of our featured case studies that showcase our expertise and approach.
+        </p>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section class="section">
+        <h2 class="heading-2">Featured Case Studies</h2>
+
+        <div class="card-grid">
+            <!-- Mobile App Case Study Card -->
+            <div class="card card-blue">
+                <div class="card-icon">📱</div>
+                <h3 class="card-title">Fitness Tracker App</h3>
+                <p class="card-text">How we developed a comprehensive fitness tracking application that increased user engagement by 45% and improved retention rates.</p>
+            </div>
+
+            <!-- Web Service Case Study Card -->
+            <div class="card card-purple">
+                <div class="card-icon">🌐</div>
+                <h3 class="card-title">E-commerce Platform</h3>
+                <p class="card-text">Our approach to rebuilding an e-commerce platform that resulted in a 30% increase in conversion rates and improved page load times by 60%.</p>
+            </div>
+
+            <!-- Game Development Case Study Card -->
+            <div class="card card-green">
+                <div class="card-icon">🎮</div>
+                <h3 class="card-title">Educational Game</h3>
+                <p class="card-text">How we created an engaging educational game that helped students improve their math skills while maintaining high levels of enjoyment.</p>
+            </div>
+
+            <!-- Enterprise Solution Case Study Card -->
+            <div class="card card-orange">
+                <div class="card-icon">🏢</div>
+                <h3 class="card-title">Enterprise Workflow Solution</h3>
+                <p class="card-text">Our implementation of a custom workflow management system that reduced processing time by 70% and eliminated manual errors.</p>
+            </div>
         </div>
+    </section>
+
+    <!-- Methodology Section -->
+    <section class="section section-bg">
+        <h2 class="heading-2">Our Approach</h2>
+        <p class="text-medium">
+            Every project follows our proven methodology:
+        </p>
+        <ul class="feature-list">
+            <li class="feature-item">
+                <span class="feature-icon">🔍</span>
+                <span class="feature-text">In-depth discovery and requirements analysis</span>
+            </li>
+            <li class="feature-item">
+                <span class="feature-icon">🎯</span>
+                <span class="feature-text">Strategic planning and solution design</span>
+            </li>
+            <li class="feature-item">
+                <span class="feature-icon">⚙️</span>
+                <span class="feature-text">Agile development with continuous client feedback</span>
+            </li>
+            <li class="feature-item">
+                <span class="feature-icon">🧪</span>
+                <span class="feature-text">Rigorous testing and quality assurance</span>
+            </li>
+            <li class="feature-item">
+                <span class="feature-icon">🚀</span>
+                <span class="feature-text">Deployment and ongoing support</span>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Call to Action Section -->
+    <div class="cta-section">
+        <p class="cta-text">
+            Ready to become our next success story? Let's discuss how we can help solve your business challenges.
+        </p>
+        <a href="/" class="cta-btn">
+            Contact Us Today
+        </a>
     </div>
-    <div class="bottom-bar">
-        &copy; 2025 Apps Studio Work. All rights reserved | <a href="/privacy-policy">Privacy Policy</a>
+</div>
+
+<!-- Bottom Bar -->
+<div class="bottom-bar">
+    <div class="bottom-bar-content">
+        <span>&copy; Apps Studio Work, LLC All rights reserved</span>
+        <span class="bottom-bar-divider">|</span>
+        <a href="/privacy-policy" class="bottom-bar-link">Privacy Policy</a>
+        <span class="bottom-bar-divider">|</span>
+        <a href="/terms-of-service" class="bottom-bar-link">Terms of Service</a>
     </div>
+</div>
 </body>
 </html>

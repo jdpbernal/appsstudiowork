@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://appsstudiowork.com/terms-of-service" />
+    <title>Terms of Service - Apps Studio Work</title>
+    <!-- Tailwind CSS CDN for easy styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Base styles */
+        body {
+            font-family: "Inter", sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+            color: #333;
+            padding-top: 80px; /* Account for fixed top menu (h-20 = 80px) */
+            padding-bottom: 60px; /* Account for fixed bottom bar (h-15 = 60px) */
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<!-- Navigation Bar with Tailwind CSS -->
+<nav class="fixed top-0 left-0 w-full bg-slate-800 shadow-lg z-50 h-20 flex items-center justify-between px-6">
+    <a href="/" class="text-white font-bold text-2xl hover:bg-slate-700 px-5 py-3 rounded-md transition duration-300 flex items-center">
+        <span class="mr-2">🚀</span>Apps Studio Work
+    </a>
+    <ul class="flex space-x-8">
+        <li class="relative group">
+            <a href="/project" class="text-white hover:bg-slate-700 px-4 py-3 rounded-md transition duration-300 flex items-center">
+                <span class="mr-1">📂</span>Project
+            </a>
+            <div class="absolute hidden group-hover:block bg-slate-800 min-w-[180px] shadow-xl rounded-md mt-1 border border-slate-700 overflow-hidden">
+                <a href="/project/mobile-apps" class="block text-white hover:bg-slate-700 px-5 py-3 text-left transition duration-200">
+                    <span class="mr-2">📱</span>Mobile Apps
+                </a>
+                <div class="relative group/nested">
+                    <a href="/project/games" class="block text-white hover:bg-slate-700 px-5 py-3 text-left transition duration-200">
+                        <span class="mr-2">🎮</span>Games
+                    </a>
+                </div>
+                <a href="/project/web-services" class="block text-white hover:bg-slate-700 px-5 py-3 text-left transition duration-200">
+                    <span class="mr-2">🌐</span>Web Services
+                </a>
+            </div>
+        </li>
+        <li><a href="/about" class="text-white hover:bg-slate-700 px-4 py-3 rounded-md transition duration-300 flex items-center">
+            <span class="mr-1">ℹ️</span>About
+        </a></li>
+    </ul>
+</nav>
+<!-- Main Content -->
+<div class="container mx-auto p-6 bg-white rounded-lg shadow-xl border border-gray-200 mt-8 mb-8" style="min-height: calc(100vh - 120px); width: 100%;">
+    <!-- Main Header Section -->
+    <header class="text-center mb-10">
+        <h1 class="text-4xl font-bold text-gray-800 mb-2">
+            Terms of Service
+        </h1>
+        <p class="text-gray-600">Last Updated: June 16, 2025</p>
+    </header>
+
+    <!-- Terms Content -->
+    <div class="text-left">
+        <p class="mb-6">Welcome to Apps Studio Work. By using our applications and services, you agree to comply with and be bound by the following terms and conditions. Please read these terms carefully before using our services.</p>
+
+        <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-3">Acceptance of Terms</h2>
+        <p class="mb-6">By accessing or using our services, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.</p>
+
+        <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-3">Definition of Services</h2>
+        <p class="mb-6">Throughout these terms, "Services" refers to our Games, Websites, Mobile Applications, and related services and other products we control.</p>
+
+        <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-3">User Eligibility</h2>
+        <p class="mb-6">Our services are generally intended for adults and designed primarily with adults in mind. By using our services, you represent that you are of legal age to form a binding contract with Apps Studio Work or have parental consent if you are a minor.</p>
+
+        <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-3">User Conduct</h2>
+        <p class="mb-3">When using our services, you agree to:</p>
+        <ul class="list-disc pl-8 mb-6">
+            <li class="mb-2">Use our services in compliance with all applicable laws and regulations</li>
+            <li class="mb-2">Not use our services for any illegal or unauthorized purpose</li>
+            <li class="mb-2">Not attempt to breach or circumvent any security measures</li>
+            <li class="mb-2">Not distribute viruses or any other harmful code</li>
+            <li class="mb-2">Not interfere with or disrupt the integrity or performance of our services</li>
+            <li class="mb-2">Not attempt to gain unauthorized access to our services or related systems</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-3">Intellectual Property Rights</h2>
+        <p class="mb-6">All content included in our services, such as text, graphics, logos, images, audio clips, digital downloads, and software, is the property of Apps Studio Work or its content suppliers and is protected by international copyright, trademark, and other intellectual property laws.</p>
+
+        <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-3">Limitation of Liability</h2>
+        <p class="mb-3">To the fullest extent permitted by applicable law, Apps Studio Work shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, or any loss of data, use, goodwill, or other intangible losses resulting from:</p>
+        <ul class="list-disc pl-8 mb-6">
+            <li class="mb-2">Your use or inability to use our services</li>
+            <li class="mb-2">Any unauthorized access to or use of our servers and/or any personal information stored therein</li>
+            <li class="mb-2">Any interruption or cessation of transmission to or from our services</li>
+            <li class="mb-2">Any bugs, viruses, trojan horses, or the like that may be transmitted to or through our services</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-3">Disclaimer of Warranties</h2>
+        <p class="mb-6">Our services are provided "as is" and "as available" without any warranties of any kind, either express or implied, including but not limited to the implied warranties of merchantability, fitness for a particular purpose, or non-infringement.</p>
+
+        <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-3">Modifications to Terms</h2>
+        <p class="mb-6">We reserve the right to modify these Terms of Service at any time. Any changes will be effective immediately upon posting the updated terms on our website. Your continued use of our services after any such changes constitutes your acceptance of the new Terms of Service.</p>
+
+        <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-3">Termination</h2>
+        <p class="mb-6">We reserve the right to terminate or suspend access to our services immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms of Service.</p>
+
+        <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-3">Governing Law</h2>
+        <p class="mb-6">These Terms shall be governed and construed in accordance with the laws of the jurisdiction in which Apps Studio Work operates, without regard to its conflict of law provisions.</p>
+
+        <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-3">Contact Us</h2>
+        <p class="mb-2">If you have any questions about these Terms of Service, please contact us at:</p>
+        <p class="mb-2">App Studio Work, LLC</p>
+        <p class="mb-6"><a href="mailto:privacy@appsstudiowork.com" class="text-blue-600 hover:underline">Email Us</a></p>
+
+        <div class="mt-10 text-center">
+            <a href="/" class="inline-block bg-indigo-600 text-white px-6 py-2 rounded-full hover:bg-indigo-700 transition duration-300">← Back to Home</a>
+        </div>
+    </div>
+</div>
+
+<!-- Bottom Bar with Tailwind CSS -->
+<div class="fixed bottom-0 left-0 w-full bg-slate-800 text-white flex items-center justify-center py-4 text-sm shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] h-15">
+    <div class="flex flex-wrap items-center justify-center gap-x-4">
+        <span>&copy; Apps Studio Work, LLC All rights reserved</span>
+        <span class="hidden sm:inline text-slate-400">|</span>
+        <a href="/privacy-policy" class="text-blue-400 hover:text-blue-300 hover:underline transition duration-300">Privacy Policy</a>
+        <span class="hidden sm:inline text-slate-400">|</span>
+        <a href="/terms-of-service" class="text-blue-400 hover:text-blue-300 hover:underline transition duration-300">Terms of Service</a>
+    </div>
+</div>
+</body>
+</html>

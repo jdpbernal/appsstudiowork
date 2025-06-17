@@ -30,6 +30,41 @@ class WebControllerTests {
     }
 
     @Test
+    void termsOfServiceEndpointReturnsTermsOfServiceView() throws Exception {
+        mockMvc.perform(get("/terms-of-service"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("terms-of-service"));
+    }
+
+    @Test
+    void flashlightPrivacyPolicyEndpointReturnsFlashlightPrivacyPolicyView() throws Exception {
+        mockMvc.perform(get("/flashlight-privacy-policy"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("flashlight-privacy-policy"));
+    }
+
+    @Test
+    void flashlightTermsOfServiceEndpointReturnsFlashlightTermsOfServiceView() throws Exception {
+        mockMvc.perform(get("/flashlight-terms-of-service"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("flashlight-terms-of-service"));
+    }
+
+    @Test
+    void calculatorPrivacyPolicyEndpointReturnsCalculatorPrivacyPolicyView() throws Exception {
+        mockMvc.perform(get("/calculator-privacy-policy"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("calculator-privacy-policy"));
+    }
+
+    @Test
+    void calculatorTermsOfServiceEndpointReturnsCalculatorTermsOfServiceView() throws Exception {
+        mockMvc.perform(get("/calculator-terms-of-service"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("calculator-terms-of-service"));
+    }
+
+    @Test
     void gameEndpointReturnsGameView() throws Exception {
         mockMvc.perform(get("/game"))
                 .andExpect(status().isOk())
@@ -76,6 +111,27 @@ class WebControllerTests {
         mockMvc.perform(get("/project/games"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("games"));
+    }
+
+    @Test
+    void simpleGamesEndpointReturnsSimpleGamesView() throws Exception {
+        mockMvc.perform(get("/project/simple-games"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("simple-games"));
+    }
+
+    @Test
+    void advancedGamesEndpointReturnsAdvancedGamesView() throws Exception {
+        mockMvc.perform(get("/project/advanced-games"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("advanced-games"));
+    }
+
+    @Test
+    void graphicsArtEndpointReturnsGraphicsArtView() throws Exception {
+        mockMvc.perform(get("/project/graphics-art"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("graphics-art"));
     }
 
     @Test

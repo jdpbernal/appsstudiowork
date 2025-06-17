@@ -1,0 +1,28 @@
+/* Base styles */
+body {
+    font-family: "Inter", sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+    color: #333;
+    padding-top: 80px; /* Account for fixed top menu (h-20 = 80px) */
+    padding-bottom: 60px; /* Account for fixed bottom bar (h-15 = 60px) */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Remove underline from all links */
+a {
+    text-decoration: none;
+}
+
+/* Remove focus highlighting on navigation links */
+nav a {
+    outline: none;
+}

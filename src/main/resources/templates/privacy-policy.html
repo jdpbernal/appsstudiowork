@@ -1,289 +1,169 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="canonical" href="https://appstudiowork.com/privacy-policy" />
+    <link rel="canonical" href="https://appsstudiowork.com/privacy-policy" />
     <title>Privacy Policy - Apps Studio Work</title>
+    <!-- Tailwind CSS CDN for easy styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        /* Base styles */
         body {
-            font-family: Arial, sans-serif;
+            font-family: "Inter", sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
+            background-color: #f0f2f5;
             color: #333;
-            background-color: #f5f5f5;
+            padding-top: 80px; /* Account for fixed top menu (h-20 = 80px) */
+            padding-bottom: 60px; /* Account for fixed bottom bar (h-15 = 60px) */
         }
         .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
-            margin-top: 60px; /* Added to account for fixed menu */
-        }
-        h1 {
-            font-size: 2rem;
-            color: #2c3e50;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 10px;
-        }
-        h2 {
-            font-size: 1.5rem;
-            color: #2c3e50;
-            margin-top: 30px;
-        }
-        p, ul, li {
-            font-size: 1rem;
-            margin-bottom: 15px;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        .footer {
-            margin-top: 50px;
-            font-size: 0.9rem;
             text-align: center;
-            border-top: 1px solid #ddd;
-            padding-top: 20px;
-        }
-        .footer a {
-            color: #3498db;
-            text-decoration: none;
-        }
-        .footer a:hover {
-            text-decoration: underline;
-        }
-        .back-link {
-            display: inline-block;
-            margin-top: 20px;
-            color: #3498db;
-            text-decoration: none;
-        }
-        .back-link:hover {
-            text-decoration: underline;
-        }
-        .menu {
-            background-color: #2c3e50;
-            width: 100%;
-            padding: 10px 0;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 100;
-        }
-        .menu ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            text-align: left;
-        }
-        .menu li {
-            display: inline-block;
-            margin: 0 15px;
-            position: relative;
-        }
-        .logo {
-            color: white;
-            text-decoration: none;
-            font-size: 0.95rem;
-            padding: 5px 10px;
-            float: left;
-            margin-left: 10px;
-            border-radius: 3px;
-            transition: background-color 0.3s;
-        }
-        .logo:hover {
-            text-decoration: none;
-        }
-        .menu a {
-            color: white;
-            text-decoration: none;
-            font-size: 0.95rem;
-            padding: 5px 10px;
-            border-radius: 3px;
-            transition: background-color 0.3s;
-        }
-        .menu a:hover {
-            text-decoration: none;
-        }
-        .menu ul {
-            display: inline-block;
-            margin-left: 20px;
-        }
-        /* Dropdown styles */
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #2c3e50;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-            left: 0;
-            border-radius: 3px;
-            margin-top: 5px;
-        }
-        .dropdown-content a {
-            color: white;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-        }
-        .dropdown-content a:hover {
-            background-color: #3a546b;
-        }
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-        /* Nested dropdown styles */
-        .nested-dropdown {
-            position: relative;
-        }
-        .nested-dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #2c3e50;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 2;
-            left: 100%;
-            top: 0;
-            border-radius: 3px;
-        }
-        .nested-dropdown:hover .nested-dropdown-content {
-            display: block;
-        }
-        .bottom-bar {
-            background-color: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            width: 100%;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            font-size: 0.9rem;
-        }
-        .bottom-bar a {
-            color: #3498db;
-            text-decoration: none;
-        }
-        .bottom-bar a:hover {
-            text-decoration: underline;
-        }
-        /* Add padding to body to prevent content from being hidden behind the bottom bar */
-        body {
-            padding-bottom: 40px;
         }
     </style>
 </head>
 <body>
-    <nav class="menu">
-        <a href="/" class="logo">Apps Studio Work</a>
-        <ul>
-            <li class="dropdown">
-                <a href="/project">Project</a>
-                <div class="dropdown-content">
-                    <a href="/project/mobile-apps">Mobile Apps</a>
-                    <div class="nested-dropdown">
-                        <a href="/project/games">Games</a>
-                    </div>
-                    <a href="/project/web-services">Web Services</a>
+<!-- Navigation Bar with Tailwind CSS -->
+<nav class="fixed top-0 left-0 w-full bg-slate-800 shadow-lg z-50 h-20 flex items-center justify-between px-6">
+    <a href="/" class="text-white font-bold text-2xl hover:bg-slate-700 px-5 py-3 rounded-md transition duration-300 flex items-center">
+        <span class="mr-2">🚀</span>Apps Studio Work
+    </a>
+    <ul class="flex space-x-8">
+        <li class="relative group">
+            <a href="/project" class="text-white hover:bg-slate-700 px-4 py-3 rounded-md transition duration-300 flex items-center">
+                <span class="mr-1">📂</span>Project
+            </a>
+            <div class="absolute hidden group-hover:block bg-slate-800 min-w-[180px] shadow-xl rounded-md mt-1 border border-slate-700 overflow-hidden">
+                <a href="/project/mobile-apps" class="block text-white hover:bg-slate-700 px-5 py-3 text-left transition duration-200">
+                    <span class="mr-2">📱</span>Mobile Apps
+                </a>
+                <div class="relative group/nested">
+                    <a href="/project/games" class="block text-white hover:bg-slate-700 px-5 py-3 text-left transition duration-200">
+                        <span class="mr-2">🎮</span>Games
+                    </a>
                 </div>
-            </li>
-            <li><a href="/case-study">Case Study</a></li>
-            <li><a href="/about">About</a></li>
-        </ul>
-    </nav>
-    <div class="container">
-        <h1>Privacy Policy</h1>
-        <p>Last Updated: May 15, 2025</p>
+                <a href="/project/web-services" class="block text-white hover:bg-slate-700 px-5 py-3 text-left transition duration-200">
+                    <span class="mr-2">🌐</span>Web Services
+                </a>
+            </div>
+        </li>
+        <li><a href="/about" class="text-white hover:bg-slate-700 px-4 py-3 rounded-md transition duration-300 flex items-center">
+            <span class="mr-1">ℹ️</span>About
+        </a></li>
+    </ul>
+</nav>
 
-        <p>Welcome to Apps Studio Work. Our applications and services are generally intended for adults and designed primarily with adults in mind. We are committed to protecting the privacy of all our users by implementing a strict no-data-collection policy. This Privacy Policy explains our approach to privacy, emphasizing that we do not collect, use, or disclose any personal information from any of our users.</p>
+<!-- Main Content -->
+<div class="container mx-auto p-6 bg-white rounded-lg shadow-xl border border-gray-200 mt-8 mb-8" style="min-height: calc(100vh - 120px); width: 100%;">
+    <!-- Main Header Section -->
+    <header class="text-center mb-10">
+        <h1 class="text-4xl font-bold text-gray-800 mb-2">
+            Privacy Policy
+        </h1>
+        <p class="text-gray-600">Last Updated: June 16, 2025</p>
+    </header>
 
-        <h2>Definition of Services</h2>
-        <p>Throughout this privacy policy, "Services" refers to our Games, Websites and related services and other products we control.</p>
+    <!-- Privacy Policy Content -->
+    <div class="text-left">
+        <p class="mb-6">Welcome to Apps Studio Work. Our applications and services are generally intended for adults and designed primarily with adults in mind. We are committed to protecting the privacy of all our users by implementing a strict no-data-collection policy. This Privacy Policy explains our approach to privacy, emphasizing that we do not collect, use, or disclose any personal information from any of our users.</p>
 
-        <h2>Children's Privacy</h2>
-        <p>While our services are generally intended for adults, we comply with the Children's Online Privacy Protection Act (COPPA). Although our applications and services are designed primarily with adults in mind, we are committed to protecting the privacy of all users and do not collect any personal information from any users, regardless of age.</p>
+        <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-3">Definition of Services</h2>
+        <p class="mb-6">Throughout this privacy policy, "Services" refers to our Games, Websites and related services and other products we control.</p>
 
-        <h2>Our No-Data Approach</h2>
-        <p>We do not collect any personal information from any users, regardless of age. Our applications and services are designed to operate without collecting or storing any user data.</p>
+        <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-3">Children's Privacy</h2>
+        <p class="mb-6">While our services are generally intended for adults, we comply with the Children's Online Privacy Protection Act (COPPA). Although our applications and services are designed primarily with adults in mind, we are committed to protecting the privacy of all users and do not collect any personal information from any users, regardless of age.</p>
 
-        <h2>Parental Guidance</h2>
-        <p>While our services are primarily designed for adults, we recognize that younger users may occasionally access our services. We encourage parents to be involved in their children's online activities. If parents have any questions or concerns about their child's use of our applications or services, they can contact us at jdpbernal@appsstudiowork.com.</p>
+        <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-3">Our No-Data Approach</h2>
+        <p class="mb-6">We do not collect any personal information from any users, regardless of age. Our applications and services are designed to operate without collecting or storing any user data.</p>
 
-        <h2>Our No-Data Policy</h2>
-        <p>We do not collect, use, or share any personal information from our users. Our applications and services are designed to function without the need to collect, store, or process any user data.</p>
+        <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-3">Parental Guidance</h2>
+        <p class="mb-6">While our services are primarily designed for adults, we recognize that younger users may occasionally access our services. We encourage parents to be involved in their children's online activities. If parents have any questions or concerns about their child's use of our applications or services, they can contact us at jdpbernal@appsstudiowork.com.</p>
 
-        <p>This means:</p>
-        <ul>
-            <li>We do not track user activity</li>
-            <li>We do not use cookies or similar tracking technologies</li>
-            <li>We do not share any information with third parties</li>
-            <li>We do not have any user accounts that store personal information</li>
-        </ul>
+        <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-3">Our No-Data Policy</h2>
+        <p class="mb-3">We do not collect, use, or share any personal information from our users. Our applications and services are designed to function without the need to collect, store, or process any user data.</p>
 
-        <h2>Security Commitment</h2>
-        <p>Even though we do not collect any personal information, we are committed to maintaining the security of our applications and services to ensure a safe experience for all users.</p>
-
-        <h2>Changes to This Privacy Policy</h2>
-        <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page, and we encourage users to review our Privacy Policy periodically.</p>
-
-        <h2>No Data Collection Notice</h2>
-        <p>Unlike many websites and applications, we do not collect any user information. This includes:</p>
-        <ul>
-            <li>No collection of browser information</li>
-            <li>No tracking of operating system</li>
-            <li>No recording of IP addresses</li>
-            <li>No monitoring of pages visited or time spent</li>
-            <li>No tracking of referring websites</li>
-        </ul>
-        <p>Our applications and services are designed to function without the need for any user data collection.</p>
-
-        <h2>Privacy Regulation Compliance</h2>
-        <p>Our no-data collection approach ensures compliance with various privacy regulations worldwide, including:</p>
-
-        <h3>GDPR (General Data Protection Regulation)</h3>
-        <p>The GDPR is a regulation in EU law on data protection and privacy for all individuals within the European Union. Since we do not collect, process, or store any personal data, we naturally comply with GDPR requirements. We do not need to establish a lawful basis for data processing, implement data subject rights mechanisms, or appoint a Data Protection Officer as we do not engage in any data processing activities covered by the GDPR.</p>
-
-        <h3>CCPA (California Consumer Privacy Act)</h3>
-        <p>The CCPA gives California residents the right to know what personal information is collected about them, the right to delete this information, and the right to opt-out of the sale of their personal information. As we do not collect any personal information, California residents' rights under the CCPA are inherently protected.</p>
-
-        <h3>CPRA (California Privacy Rights Act)</h3>
-        <p>The CPRA amends and expands the CCPA, providing additional privacy protections for California residents. Since we do not collect, use, share, or sell any personal information, we are in compliance with the CPRA's enhanced requirements.</p>
-
-        <h3>VCDPA (Virginia Consumer Data Protection Act)</h3>
-        <p>The VCDPA provides Virginia residents with rights regarding their personal data, including the right to access, correct, delete, and opt out of the processing of their personal data for targeted advertising. Our no-data collection policy ensures compliance with the VCDPA as we do not process any personal data of Virginia residents.</p>
-
-        <h3>PIPEDA (Personal Information Protection and Electronic Documents Act)</h3>
-        <p>PIPEDA is Canada's federal privacy law for private-sector organizations. It sets out the ground rules for how businesses must handle personal information in the course of their commercial activities. As we do not collect, use, or disclose any personal information in our commercial activities, we comply with PIPEDA's requirements.</p>
-
-        <p>Our commitment to not collecting any personal data means that users do not need to worry about how their data is being used, stored, or shared, as we simply do not engage in any of these activities.</p>
-
-        <h2>Terms and Conditions of Service</h2>
-        <p>By using Apps Studio Work applications and services, you agree to the following terms and conditions:</p>
-        <p>Please note that our services are generally intended for adults and designed primarily with adults in mind.</p>
-        <ul>
-            <li>You will use our services in compliance with all applicable laws and regulations</li>
-            <li>You will not use our services for any illegal or unauthorized purpose</li>
-            <li>You will not attempt to breach or circumvent any security measures</li>
-            <li>You will not distribute viruses or any other harmful code</li>
-            <li>We reserve the right to terminate access for users who violate these terms</li>
-            <li>We may update these terms from time to time, and continued use constitutes acceptance of any changes</li>
+        <p class="mb-3">This means:</p>
+        <ul class="list-disc pl-8 mb-6">
+            <li class="mb-2">We do not track user activity</li>
+            <li class="mb-2">We do not use cookies or similar tracking technologies</li>
+            <li class="mb-2">We do not share any information with third parties</li>
+            <li class="mb-2">We do not have any user accounts that store personal information</li>
         </ul>
 
-        <h2>Contact Us</h2>
-        <p>If you have any questions about this Privacy Policy or our data practices, please contact us at:</p>
-        <p>Owner contact email: jdpbernal@appsstudiowork.com</p>
-        <p>Developer: Jesus Dino Bernal</p>
+        <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-3">Security Commitment</h2>
+        <p class="mb-6">Even though we do not collect any personal information, we are committed to maintaining the security of our applications and services to ensure a safe experience for all users.</p>
 
-        <a href="/" class="back-link">← Back to Home</a>
+        <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-3">Changes to This Privacy Policy</h2>
+        <p class="mb-6">We may update this Privacy Policy from time to time. Any changes will be posted on this page, and we encourage users to review our Privacy Policy periodically.</p>
 
-        <div class="footer">
+        <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-3">No Data Collection Notice</h2>
+        <p class="mb-3">Unlike many websites and applications, we do not collect any user information. This includes:</p>
+        <ul class="list-disc pl-8 mb-6">
+            <li class="mb-2">No collection of browser information</li>
+            <li class="mb-2">No tracking of operating system</li>
+            <li class="mb-2">No recording of IP addresses</li>
+            <li class="mb-2">No monitoring of pages visited or time spent</li>
+            <li class="mb-2">No tracking of referring websites</li>
+        </ul>
+        <p class="mb-6">Our applications and services are designed to function without the need for any user data collection.</p>
+
+        <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-3">Privacy Regulation Compliance</h2>
+        <p class="mb-6">Our no-data collection approach ensures compliance with various privacy regulations worldwide, including:</p>
+
+        <h3 class="text-xl font-bold text-gray-800 mt-6 mb-2">GDPR (General Data Protection Regulation)</h3>
+        <p class="mb-6">The GDPR is a regulation in EU law on data protection and privacy for all individuals within the European Union. Since we do not collect, process, or store any personal data, we naturally comply with GDPR requirements. We do not need to establish a lawful basis for data processing, implement data subject rights mechanisms, or appoint a Data Protection Officer as we do not engage in any data processing activities covered by the GDPR.</p>
+
+        <h3 class="text-xl font-bold text-gray-800 mt-6 mb-2">CCPA (California Consumer Privacy Act)</h3>
+        <p class="mb-6">The CCPA gives California residents the right to know what personal information is collected about them, the right to delete this information, and the right to opt-out of the sale of their personal information. As we do not collect any personal information, California residents' rights under the CCPA are inherently protected.</p>
+
+        <h3 class="text-xl font-bold text-gray-800 mt-6 mb-2">CPRA (California Privacy Rights Act)</h3>
+        <p class="mb-6">The CPRA amends and expands the CCPA, providing additional privacy protections for California residents. Since we do not collect, use, share, or sell any personal information, we are in compliance with the CPRA's enhanced requirements.</p>
+
+        <h3 class="text-xl font-bold text-gray-800 mt-6 mb-2">VCDPA (Virginia Consumer Data Protection Act)</h3>
+        <p class="mb-6">The VCDPA provides Virginia residents with rights regarding their personal data, including the right to access, correct, delete, and opt out of the processing of their personal data for targeted advertising. Our no-data collection policy ensures compliance with the VCDPA as we do not process any personal data of Virginia residents.</p>
+
+        <h3 class="text-xl font-bold text-gray-800 mt-6 mb-2">PIPEDA (Personal Information Protection and Electronic Documents Act)</h3>
+        <p class="mb-6">PIPEDA is Canada's federal privacy law for private-sector organizations. It sets out the ground rules for how businesses must handle personal information in the course of their commercial activities. As we do not collect, use, or disclose any personal information in our commercial activities, we comply with PIPEDA's requirements.</p>
+
+        <p class="mb-6">Our commitment to not collecting any personal data means that users do not need to worry about how their data is being used, stored, or shared, as we simply do not engage in any of these activities.</p>
+
+        <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-3">Terms and Conditions of Service</h2>
+        <p class="mb-3">By using Apps Studio Work applications and services, you agree to the following terms and conditions:</p>
+        <p class="mb-3">Please note that our services are generally intended for adults and designed primarily with adults in mind.</p>
+        <ul class="list-disc pl-8 mb-6">
+            <li class="mb-2">You will use our services in compliance with all applicable laws and regulations</li>
+            <li class="mb-2">You will not use our services for any illegal or unauthorized purpose</li>
+            <li class="mb-2">You will not attempt to breach or circumvent any security measures</li>
+            <li class="mb-2">You will not distribute viruses or any other harmful code</li>
+            <li class="mb-2">We reserve the right to terminate access for users who violate these terms</li>
+            <li class="mb-2">We may update these terms from time to time, and continued use constitutes acceptance of any changes</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-3">Contact Us</h2>
+        <p class="mb-2">If you have any questions about this Privacy Policy or our data practices, please contact us at:</p>
+        <p class="mb-2">App Studio Work, LLC</p>
+        <p class="mb-6"><a href="mailto:privacy@appsstudiowork.com" class="text-blue-600 hover:underline">Email Us</a></p>
+
+        <div class="mt-10 text-center">
+            <a href="/" class="inline-block bg-indigo-600 text-white px-6 py-2 rounded-full hover:bg-indigo-700 transition duration-300">← Back to Home</a>
         </div>
     </div>
-    <div class="bottom-bar">
-        &copy; 2025 Apps Studio Work. All rights reserved | <a href="/privacy-policy">Privacy Policy</a>
+</div>
+
+<!-- Bottom Bar with Tailwind CSS -->
+<div class="fixed bottom-0 left-0 w-full bg-slate-800 text-white flex items-center justify-center py-4 text-sm shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] h-15">
+    <div class="flex flex-wrap items-center justify-center gap-x-4">
+        <span>&copy; Apps Studio Work, LLC All rights reserved</span>
+        <span class="hidden sm:inline text-slate-400">|</span>
+        <a href="/privacy-policy" class="text-blue-400 hover:text-blue-300 hover:underline transition duration-300">Privacy Policy</a>
+        <span class="hidden sm:inline text-slate-400">|</span>
+        <a href="/terms-of-service" class="text-blue-400 hover:text-blue-300 hover:underline transition duration-300">Terms of Service</a>
     </div>
+</div>
 </body>
 </html>
