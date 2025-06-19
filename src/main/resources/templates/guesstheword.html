@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://appsstudiowork.com/games/guesstheword" />
+    <title>Guess The Hidden Word - Apps Studio Work</title>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <!-- External JavaScript -->
+    <script src="/js/main.js" defer></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="nav-main">
+        <a href="/" class="nav-logo">
+            <span class="nav-logo-icon">🚀</span>Apps Studio Work
+        </a>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="/project" class="nav-link">
+                    <span class="nav-link-icon">📂</span>Project
+                </a>
+                <!-- Dropdown menu would be handled with JavaScript -->
+            </li>
+            <li class="nav-item"><a href="/case-study" class="nav-link">
+                <span class="nav-link-icon">📊</span>Case Study
+            </a></li>
+            <li class="nav-item"><a href="/about" class="nav-link">
+                <span class="nav-link-icon">ℹ️</span>About
+            </a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-container text-center">
+        <h1 class="heading-2">Guess The Hidden Word</h1>
+        <div class="text-7xl my-8 text-blue-500">🔤🔍</div>
+        <p class="text-medium">Challenge yourself to guess the hidden word! You have 6 attempts to figure out the secret word. After each guess, you'll get feedback on which letters are correct and in the right position.</p>
+
+        <div class="game-difficulty-selection my-4">
+            <label class="cursor-pointer font-bold text-slate-800">
+                <input type="radio" name="difficulty" value="easy" checked> Easy (4-5 letters)
+            </label>
+            <label class="cursor-pointer font-bold text-slate-800 ml-5">
+                <input type="radio" name="difficulty" value="medium"> Medium (6-7 letters)
+            </label>
+            <label class="cursor-pointer font-bold text-slate-800 ml-5">
+                <input type="radio" name="difficulty" value="hard"> Hard (8+ letters)
+            </label>
+        </div>
+
+        <div class="flex flex-col items-center h-[600px] max-h-[600px]">
+            <div class="text-2xl font-bold text-slate-800 my-5">Press Start to begin the game</div>
+
+            <div class="game-board hidden">
+                <div class="word-display mb-4">
+                    <div class="flex justify-center">
+                        <div class="letter-box bg-white border-2 border-slate-800 text-3xl flex items-center justify-center h-[50px] w-[50px] mx-1"></div>
+                        <div class="letter-box bg-white border-2 border-slate-800 text-3xl flex items-center justify-center h-[50px] w-[50px] mx-1"></div>
+                        <div class="letter-box bg-white border-2 border-slate-800 text-3xl flex items-center justify-center h-[50px] w-[50px] mx-1"></div>
+                        <div class="letter-box bg-white border-2 border-slate-800 text-3xl flex items-center justify-center h-[50px] w-[50px] mx-1"></div>
+                        <div class="letter-box bg-white border-2 border-slate-800 text-3xl flex items-center justify-center h-[50px] w-[50px] mx-1"></div>
+                    </div>
+                </div>
+
+                <div class="guess-input mb-4">
+                    <input type="text" id="word-guess" class="border-2 border-slate-800 rounded px-4 py-2 w-[200px]" placeholder="Enter your guess">
+                    <button id="submit-guess" class="bg-blue-500 hover:bg-blue-600 text-white border-none py-2 px-5 text-base rounded-md cursor-pointer ml-2 transition duration-300">Submit</button>
+                </div>
+
+                <div class="guess-history mb-4">
+                    <h3 class="text-xl font-bold text-slate-800 mb-2">Previous Guesses</h3>
+                    <div id="guesses-container" class="flex flex-col items-center">
+                        <!-- Guesses will be added here dynamically -->
+                    </div>
+                </div>
+
+                <div class="game-status mb-4">
+                    <p id="attempts-left" class="text-lg font-bold">Attempts left: 6</p>
+                    <p id="game-message" class="text-lg font-bold text-green-500"></p>
+                </div>
+            </div>
+
+            <div class="mt-6">
+                <button id="start-button" class="bg-green-500 hover:bg-green-600 text-white border-none py-2 px-5 text-base rounded-md cursor-pointer mx-2 transition duration-300">Start Game</button>
+                <button id="reset-button" class="bg-blue-500 hover:bg-blue-600 text-white border-none py-2 px-5 text-base rounded-md cursor-pointer mx-2 transition duration-300 hidden">Reset Game</button>
+                <button id="exit-button" class="bg-red-500 hover:bg-red-600 text-white border-none py-2 px-5 text-base rounded-md cursor-pointer mx-2 transition duration-300">Exit Game</button>
+            </div>
+        </div>
+
+        <div class="mt-12 pt-6 border-t border-gray-200">
+            <div class="flex justify-center space-x-4">
+                <a href="/guesstheword-privacy-policy" class="text-blue-600 hover:text-blue-800 hover:underline">Privacy Policy</a>
+                <a href="/guesstheword-terms-of-service" class="text-blue-600 hover:text-blue-800 hover:underline">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Bar with Tailwind CSS -->
+    <div class="fixed bottom-0 left-0 w-full bg-slate-800 text-white flex items-center justify-center py-4 text-sm shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] h-15">
+        <div class="flex flex-wrap items-center justify-center gap-x-4">
+            <span>&copy; Apps Studio Work, LLC All rights reserved</span>
+            <span class="hidden sm:inline text-slate-400">|</span>
+            <a href="/privacy-policy" class="text-blue-400 hover:text-blue-300 hover:underline transition duration-300">Privacy Policy</a>
+            <span class="hidden sm:inline text-slate-400">|</span>
+            <a href="/terms-of-service" class="text-blue-400 hover:text-blue-300 hover:underline transition duration-300">Terms of Service</a>
+        </div>
+    </div>
+</body>
+</html>
