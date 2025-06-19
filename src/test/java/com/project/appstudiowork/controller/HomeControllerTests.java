@@ -29,10 +29,4 @@ class HomeControllerTests {
                 .andExpect(view().name("about"));
     }
 
-    @Test
-    void caseStudyEndpointReturnsCaseStudyView() throws Exception {
-        mockMvc.perform(get("/case-study"))
-                .andExpect(status().isOk())
-                .andExpect(view().name("case-study"));
-    }
 }

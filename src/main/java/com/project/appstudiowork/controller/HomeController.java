@@ -16,8 +16,4 @@ public class HomeController {
         return "about";
     }
 
-    @GetMapping("/case-study")
-    public String caseStudy() {
-        return "case-study";
-    }
 }

@@ -7,129 +7,22 @@
     <title>Sudoku - Apps Studio Work</title>
     <!-- Tailwind CSS CDN for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body {
-            font-family: "Inter", sans-serif;
-            padding-top: 80px; /* Account for fixed top menu (h-20 = 80px) */
-            padding-bottom: 60px; /* Account for fixed bottom bar (h-15 = 60px) */
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    gridTemplateColumns: {
+                        'sudoku': 'repeat(9, 40px)',
+                    },
+                    gridTemplateRows: {
+                        'sudoku': 'repeat(9, 40px)',
+                    }
+                }
+            }
         }
-
-        /* Sudoku Game Styles */
-        .sudoku-board {
-            display: grid;
-            grid-template-columns: repeat(9, 40px);
-            grid-template-rows: repeat(9, 40px);
-            gap: 1px;
-            margin: 0 auto;
-            width: 370px;
-            background-color: #2c3e50;
-            padding: 5px;
-            border-radius: 5px;
-        }
-        .sudoku-cell {
-            background-color: #fff;
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            user-select: none;
-        }
-        .sudoku-cell:hover:not(.fixed) {
-            background-color: #f0f0f0;
-        }
-        .sudoku-cell.fixed {
-            font-weight: bold;
-            background-color: #f5f5f5;
-            cursor: default;
-        }
-        .sudoku-cell.selected {
-            background-color: #d4e6f1;
-        }
-        .sudoku-cell.error {
-            color: #e74c3c;
-        }
-        /* Add borders to separate 3x3 blocks */
-        .sudoku-cell[data-col="2"], .sudoku-cell[data-col="5"] {
-            border-right: 2px solid #2c3e50;
-        }
-        .sudoku-cell[data-row="2"], .sudoku-cell[data-row="5"] {
-            border-bottom: 2px solid #2c3e50;
-        }
-        .game-controls {
-            margin: 20px 0;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .number-pad {
-            display: grid;
-            grid-template-columns: repeat(9, 40px);
-            gap: 5px;
-            margin: 20px auto;
-        }
-        .number-button {
-            background-color: #3498db;
-            color: white;
-            border: none;
-            font-size: 1.2rem;
-            border-radius: 5px;
-            cursor: pointer;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background-color 0.3s;
-        }
-        .number-button:hover {
-            background-color: #2980b9;
-        }
-        .control-button {
-            background-color: #3498db;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            margin: 10px;
-            transition: background-color 0.3s;
-        }
-        .control-button:hover {
-            background-color: #2980b9;
-        }
-        .difficulty-selection {
-            margin: 20px 0;
-            padding: 15px;
-            background-color: #f0f0f0;
-            border-radius: 5px;
-            display: inline-block;
-        }
-        .difficulty-selection label {
-            cursor: pointer;
-            font-weight: bold;
-            color: #2c3e50;
-            margin: 0 10px;
-        }
-        .game-status {
-            margin: 20px 0;
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #2c3e50;
-        }
-        .timer {
-            font-size: 1.2rem;
-            margin: 10px 0;
-            color: #2c3e50;
-        }
-        /* Remove focus highlighting on navigation links */
-        nav a {
-            outline: none;
-        }
-    </style>
+    </script>
 </head>
-<body>
+<body class="bg-gray-100 text-gray-800 font-sans leading-relaxed m-0 p-0 pt-20 pb-16">
     <!-- Navigation Bar with Tailwind CSS -->
     <nav class="fixed top-0 left-0 w-full bg-slate-800 shadow-lg z-50 h-20 flex items-center justify-between px-6">
         <a href="/" class="text-white font-bold text-2xl hover:bg-slate-700 px-5 py-3 rounded-md transition duration-300 flex items-center">
@@ -155,9 +48,6 @@
                             <a href="/games/tictactoe" class="block text-white hover:bg-slate-700 px-5 py-3 text-left transition duration-200">
                                 <span class="mr-2">❌⭕</span>Tic Tac Toe
                             </a>
-                            <a href="/games/crosstheroad" class="block text-white hover:bg-slate-700 px-5 py-3 text-left transition duration-200">
-                                <span class="mr-2">🚗</span>Cross The Road
-                            </a>
                         </div>
                     </div>
                     <a href="/project/web-services" class="block text-white hover:bg-slate-700 px-5 py-3 text-left transition duration-200">
@@ -165,9 +55,6 @@
                     </a>
                 </div>
             </li>
-            <li><a href="/case-study" class="text-white hover:bg-slate-700 px-4 py-3 rounded-md transition duration-300 flex items-center">
-                <span class="mr-1">📊</span>Case Study
-            </a></li>
             <li><a href="/about" class="text-white hover:bg-slate-700 px-4 py-3 rounded-md transition duration-300 flex items-center">
                 <span class="mr-1">ℹ️</span>About
             </a></li>
@@ -193,9 +80,10 @@
         </div>
 
         <div class="text-2xl font-bold text-slate-800 my-5">Select a cell and use the number pad below</div>
-        <div class="text-xl text-slate-700 my-3">Time: 00:00</div>
+        <div class="timer text-xl text-slate-700 my-3">Time: 00:00</div>
+        <div class="game-status text-xl font-bold text-slate-800 my-3">Ready to play!</div>
 
-        <div class="sudoku-board grid grid-cols-9 gap-[1px] mx-auto w-[370px] bg-slate-800 p-[5px] rounded-md" id="sudoku-board">
+        <div class="grid grid-cols-sudoku gap-0 mx-auto w-[365px] bg-slate-800 p-[5px] rounded-md" id="sudoku-board">
             <!-- Cells will be generated by JavaScript -->
         </div>
 
@@ -212,10 +100,11 @@
         </div>
 
         <div class="flex justify-center flex-wrap my-5">
-            <button class="control-button bg-blue-500 hover:bg-blue-600 text-white border-none py-2 px-5 text-base rounded-md cursor-pointer m-2 transition duration-300" id="erase-button">Erase</button>
-            <button class="control-button bg-blue-500 hover:bg-blue-600 text-white border-none py-2 px-5 text-base rounded-md cursor-pointer m-2 transition duration-300" id="hint-button">Hint</button>
-            <button class="control-button bg-blue-500 hover:bg-blue-600 text-white border-none py-2 px-5 text-base rounded-md cursor-pointer m-2 transition duration-300" id="new-game-button">New Game</button>
-            <button class="control-button bg-blue-500 hover:bg-blue-600 text-white border-none py-2 px-5 text-base rounded-md cursor-pointer m-2 transition duration-300" id="check-button">Check Solution</button>
+            <button class="bg-blue-500 hover:bg-blue-600 text-white border-none py-2 px-5 text-base rounded-md cursor-pointer m-2 transition duration-300" id="erase-button">Erase</button>
+            <button class="bg-blue-500 hover:bg-blue-600 text-white border-none py-2 px-5 text-base rounded-md cursor-pointer m-2 transition duration-300" id="hint-button">Hint</button>
+            <button class="bg-blue-500 hover:bg-blue-600 text-white border-none py-2 px-5 text-base rounded-md cursor-pointer m-2 transition duration-300" id="new-game-button">New Game</button>
+            <button class="bg-blue-500 hover:bg-blue-600 text-white border-none py-2 px-5 text-base rounded-md cursor-pointer m-2 transition duration-300" id="check-button">Check Solution</button>
+            <button class="bg-red-500 hover:bg-red-600 text-white border-none py-2 px-5 text-base rounded-md cursor-pointer m-2 transition duration-300" id="exit-button">Exit Game</button>
         </div>
 
         <script>
@@ -230,6 +119,7 @@
                 const hintButton = document.getElementById('hint-button');
                 const newGameButton = document.getElementById('new-game-button');
                 const checkButton = document.getElementById('check-button');
+                const exitButton = document.getElementById('exit-button');
 
                 // Game variables
                 let selectedCell = null;
@@ -248,9 +138,32 @@
                     for (let row = 0; row < 9; row++) {
                         for (let col = 0; col < 9; col++) {
                             const cell = document.createElement('div');
-                            cell.className = 'sudoku-cell';
+                            cell.className = 'bg-white text-2xl flex items-center justify-center cursor-pointer transition-colors duration-300 select-none h-[40px] w-[40px]';
                             cell.dataset.row = row;
                             cell.dataset.col = col;
+
+                            // Add consistent borders to create the Sudoku grid using Tailwind CSS
+                            // Add thin borders to all cells
+                            cell.classList.add('border', 'border-slate-200');
+
+                            // Add thicker borders to separate 3x3 blocks using Tailwind CSS
+                            // Right border for cells at the end of each 3x3 block
+                            if (col % 3 === 2) {
+                                cell.classList.add('border-r', 'border-r-slate-800', 'border-r-[3px]');
+                            }
+                            // Bottom border for cells at the end of each 3x3 block
+                            if (row % 3 === 2) {
+                                cell.classList.add('border-b', 'border-b-slate-800', 'border-b-[3px]');
+                            }
+                            // Left border only for the leftmost column
+                            if (col === 0) {
+                                cell.classList.add('border-l', 'border-l-slate-800', 'border-l-[3px]');
+                            }
+                            // Top border only for the top row
+                            if (row === 0) {
+                                cell.classList.add('border-t', 'border-t-slate-800', 'border-t-[3px]');
+                            }
+
                             cell.addEventListener('click', () => selectCell(cell, row, col));
                             board.appendChild(cell);
                         }
@@ -263,26 +176,34 @@
 
                     // Remove selected class from previously selected cell
                     if (selectedCell) {
-                        selectedCell.classList.remove('selected');
+                        selectedCell.classList.remove('bg-blue-100');
                     }
 
                     // Add selected class to the new cell
-                    cell.classList.add('selected');
+                    cell.classList.add('bg-blue-100');
                     selectedCell = cell;
                 }
 
                 // Update the board display
                 function updateBoard() {
-                    const cells = board.querySelectorAll('.sudoku-cell');
+                    const cells = board.querySelectorAll('[data-row]');
                     cells.forEach(cell => {
                         const row = parseInt(cell.dataset.row);
                         const col = parseInt(cell.dataset.col);
 
                         cell.textContent = gameBoard[row][col] || '';
-                        cell.classList.remove('fixed', 'error');
+
+                        // Reset classes that might have been added
+                        cell.classList.remove('font-bold', 'bg-gray-100', 'cursor-default', 'text-red-500');
+
+                        // Make cell hoverable if not fixed
+                        if (!fixedCells[row][col]) {
+                            cell.classList.add('hover:bg-gray-100');
+                        }
 
                         if (fixedCells[row][col]) {
-                            cell.classList.add('fixed');
+                            cell.classList.add('font-bold', 'bg-gray-100', 'cursor-default');
+                            cell.classList.remove('hover:bg-gray-100');
                         }
                     });
                 }
@@ -497,7 +418,7 @@
 
                     gameBoard[row][col] = 0;
                     selectedCell.textContent = '';
-                    selectedCell.classList.remove('error');
+                    selectedCell.classList.remove('text-red-500');
                 }
 
                 // Provide a hint (fill in a random empty cell)
@@ -548,8 +469,8 @@
                             // Check if the value is correct
                             if (value !== solution[row][col]) {
                                 // Mark the cell as an error
-                                const cell = board.querySelector(`.sudoku-cell[data-row="${row}"][data-col="${col}"]`);
-                                cell.classList.add('error');
+                                const cell = board.querySelector(`[data-row="${row}"][data-col="${col}"]`);
+                                cell.classList.add('text-red-500');
                                 hasErrors = true;
                             }
                         }
@@ -614,6 +535,9 @@
                 hintButton.addEventListener('click', giveHint);
                 newGameButton.addEventListener('click', startNewGame);
                 checkButton.addEventListener('click', checkSolution);
+                exitButton.addEventListener('click', function() {
+                    window.location.href = '/project/games';
+                });
 
                 difficultyRadios.forEach(radio => {
                     radio.addEventListener('change', () => {

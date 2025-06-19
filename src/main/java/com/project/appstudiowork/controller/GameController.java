@@ -21,10 +21,6 @@ public class GameController {
         return "sudoku";
     }
 
-    @GetMapping("/games/crosstheroad")
-    public String crossTheRoad() {
-        return "crosstheroad";
-    }
 
     @GetMapping("/games/guesstheword")
     public String guessTheWord() {

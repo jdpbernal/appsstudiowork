@@ -36,12 +36,6 @@ class GameControllerTests {
                 .andExpect(view().name("sudoku"));
     }
 
-    @Test
-    void crossTheRoadEndpointReturnsCrossTheRoadView() throws Exception {
-        mockMvc.perform(get("/games/crosstheroad"))
-                .andExpect(status().isOk())
-                .andExpect(view().name("crosstheroad"));
-    }
 
     @Test
     void guessTheWordEndpointReturnsGuessTheWordView() throws Exception {
