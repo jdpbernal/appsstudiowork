@@ -72,17 +72,17 @@ class LegalControllerTests {
     }
 
     @Test
-    void trackMyStepsPrivacyPolicyEndpointReturnsTrackMyStepsPrivacyPolicyView() throws Exception {
-        mockMvc.perform(get("/trackmysteps-privacy-policy"))
+    void stepCounterPrivacyPolicyEndpointReturnsStepCounterPrivacyPolicyView() throws Exception {
+        mockMvc.perform(get("/stepcounter-privacy-policy"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("trackmysteps-privacy-policy"));
+                .andExpect(view().name("stepcounter-privacy-policy"));
     }
 
     @Test
-    void trackMyStepsTermsOfServiceEndpointReturnsTrackMyStepsTermsOfServiceView() throws Exception {
-        mockMvc.perform(get("/trackmysteps-terms-of-service"))
+    void stepCounterTermsOfServiceEndpointReturnsStepCounterTermsOfServiceView() throws Exception {
+        mockMvc.perform(get("/stepcounter-terms-of-service"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("trackmysteps-terms-of-service"));
+                .andExpect(view().name("stepcounter-terms-of-service"));
     }
 
     @Test
