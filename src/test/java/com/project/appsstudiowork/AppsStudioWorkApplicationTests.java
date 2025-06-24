@@ -1,4 +1,4 @@
-package com.project.appstudiowork;
+package com.project.appsstudiowork;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;

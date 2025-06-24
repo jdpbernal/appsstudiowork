@@ -1,4 +1,4 @@
-package com.project.appstudiowork.controller;
+package com.project.appsstudiowork.controller;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
