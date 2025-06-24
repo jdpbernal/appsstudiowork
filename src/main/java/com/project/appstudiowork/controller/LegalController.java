@@ -46,16 +46,6 @@ public class LegalController {
         return "compassgeolocation-terms-of-service";
     }
 
-    @GetMapping("/stepcounter-privacy-policy")
-    public String stepCounterPrivacyPolicy() {
-        return "stepcounter-privacy-policy";
-    }
-
-    @GetMapping("/stepcounter-terms-of-service")
-    public String stepCounterTermsOfService() {
-        return "stepcounter-terms-of-service";
-    }
-
     @GetMapping("/guesstheword-privacy-policy")
     public String guessTheWordPrivacyPolicy() {
         return "guesstheword-privacy-policy";
@@ -64,5 +54,15 @@ public class LegalController {
     @GetMapping("/guesstheword-terms-of-service")
     public String guessTheWordTermsOfService() {
         return "guesstheword-terms-of-service";
+    }
+
+    @GetMapping("/trackmysteps-privacy-policy")
+    public String trackMyStepsPrivacyPolicy() {
+        return "trackmysteps-privacy-policy";
+    }
+
+    @GetMapping("/trackmysteps-terms-of-service")
+    public String trackMyStepsTermsOfService() {
+        return "trackmysteps-terms-of-service";
     }
 }
